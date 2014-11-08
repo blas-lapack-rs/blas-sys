@@ -1,0 +1,3 @@
+[submodule "libblas"]
+	path = libblas
+	url = https://github.com/stainless-steel/liblapack.git
