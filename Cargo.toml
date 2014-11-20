@@ -2,5 +2,10 @@
 name = "libblas-sys"
 version = "0.0.1"
 authors = ["Ivan Ukhov <ivan.ukhov@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/stainless-steel/libblas-sys"
+homepage = "https://github.com/stainless-steel/libblas-sys"
+documentation = "https://stainless-steel.github.io/libblas-sys"
+description = "The library facilitates static linking with the Basic Linear Algebra Subprograms."
 links = "libblas"
 build = "build.rs"
