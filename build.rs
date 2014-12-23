@@ -2,15 +2,15 @@
 
 macro_rules! cmd(
     ($name:expr) => (::std::io::process::Command::new($name));
-)
+);
 
 macro_rules! fmt(
     ($($arg:tt)*) => (format_args!(::std::fmt::format, $($arg)*).as_slice());
-)
+);
 
 macro_rules! get(
     ($name:expr) => (::std::os::getenv($name).unwrap());
-)
+);
 
 macro_rules! run(
     ($command:expr) => (
@@ -18,7 +18,7 @@ macro_rules! run(
                         .stderr(::std::io::process::InheritFd(2))
                         .status().unwrap().success());
     );
-)
+);
 
 fn main() {
     let from = Path::new(get!("CARGO_MANIFEST_DIR")).join("libblas");
