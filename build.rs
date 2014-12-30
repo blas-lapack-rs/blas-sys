@@ -5,7 +5,7 @@ macro_rules! cmd(
 );
 
 macro_rules! fmt(
-    ($($arg:tt)*) => (format_args!(::std::fmt::format, $($arg)*).as_slice());
+    ($($arg:tt)*) => (format!($($arg)*).as_slice());
 );
 
 macro_rules! get(
