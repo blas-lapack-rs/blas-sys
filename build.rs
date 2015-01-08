@@ -1,5 +1,3 @@
-#![feature(macro_rules)]
-
 macro_rules! cmd(
     ($name:expr) => (::std::io::process::Command::new($name));
 );
