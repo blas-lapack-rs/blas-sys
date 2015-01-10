@@ -1,3 +1,5 @@
+#![allow(unstable)]
+
 macro_rules! cmd(
     ($name:expr) => (::std::io::process::Command::new($name));
 );
