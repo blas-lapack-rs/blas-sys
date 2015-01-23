@@ -21,7 +21,7 @@ macro_rules! run(
 );
 
 fn main() {
-    let from = Path::new(get!("CARGO_MANIFEST_DIR")).join("libblas");
+    let from = Path::new(get!("CARGO_MANIFEST_DIR")).join("blas");
     let into = Path::new(get!("OUT_DIR"));
 
     run!(cmd!("cmake").cwd(&into).arg(&from)
