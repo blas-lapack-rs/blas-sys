@@ -2,7 +2,8 @@
 //!
 //! [1]: http://www.netlib.org/blas/
 
-#[allow(unstable)]
+#![feature(libc)]
+
 extern crate libc;
 
 use libc::{c_char, c_double, c_int};
