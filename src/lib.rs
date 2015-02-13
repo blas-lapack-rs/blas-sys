@@ -2,8 +2,6 @@
 //!
 //! [1]: http://www.netlib.org/blas/
 
-#![feature(libc)]
-
 extern crate libc;
 
 use libc::{c_char, c_double, c_int};
