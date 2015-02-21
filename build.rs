@@ -1,4 +1,4 @@
-#![feature(env, io, path)]
+#![feature(env, old_io, old_path)]
 
 use std::old_io as io;
 use std::env;
@@ -8,7 +8,7 @@ macro_rules! cmd(
 );
 
 macro_rules! fmt(
-    ($($arg:tt)*) => (&format!($($arg)*)[]);
+    ($($arg:tt)*) => (&format!($($arg)*)[..]);
 );
 
 macro_rules! get(
