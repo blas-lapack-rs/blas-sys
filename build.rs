@@ -7,10 +7,6 @@ macro_rules! cmd(
     ($name:expr) => (process::Command::new($name));
 );
 
-macro_rules! fmt(
-    ($($arg:tt)*) => (format!($($arg)*));
-);
-
 macro_rules! get(
     ($name:expr) => (env::var($name).unwrap());
 );
@@ -24,9 +20,7 @@ macro_rules! run(
 );
 
 fn main() {
-    let mut from = PathBuf::new(&get!("CARGO_MANIFEST_DIR"));
-    from.push("blas");
-
+    let from = PathBuf::new(&get!("CARGO_MANIFEST_DIR")).join("blas");
     let into = PathBuf::new(&get!("OUT_DIR"));
 
     run!(cmd!("cmake").current_dir(&into)
@@ -37,7 +31,7 @@ fn main() {
                       .arg("--build").arg(".")
                       .arg("--target").arg("blas")
                       .arg("--")
-                      .arg(&fmt!("-j{}", get!("NUM_JOBS"))));
+                      .arg(&format!("-j{}", get!("NUM_JOBS"))));
 
     println!("cargo:rustc-flags=-L {}", into.join("lib").display());
     println!("cargo:rustc-flags=-l blas:static");
