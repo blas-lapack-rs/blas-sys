@@ -13,9 +13,7 @@ macro_rules! get(
 
 macro_rules! run(
     ($command:expr) => (
-        assert!($command.stdout(process::Stdio::inherit())
-                        .stderr(process::Stdio::inherit())
-                        .status().unwrap().success());
+        assert!($command.status().unwrap().success());
     );
 );
 
