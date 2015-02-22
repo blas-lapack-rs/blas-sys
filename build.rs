@@ -8,7 +8,7 @@ macro_rules! cmd(
 );
 
 macro_rules! fmt(
-    ($($arg:tt)*) => (&format!($($arg)*)[..]);
+    ($($arg:tt)*) => (format!($($arg)*));
 );
 
 macro_rules! get(
@@ -37,7 +37,7 @@ fn main() {
                       .arg("--build").arg(".")
                       .arg("--target").arg("blas")
                       .arg("--")
-                      .arg(fmt!("-j{}", get!("NUM_JOBS"))));
+                      .arg(&fmt!("-j{}", get!("NUM_JOBS"))));
 
     println!("cargo:rustc-flags=-L {}", into.join("lib").display());
     println!("cargo:rustc-flags=-l blas:static");
