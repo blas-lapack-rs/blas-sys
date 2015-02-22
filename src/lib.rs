@@ -1,4 +1,4 @@
-//! Facilitation of static linking with the [Basic Linear Algebra Subprograms][1].
+//! Static linking with the [Basic Linear Algebra Subprograms][1].
 //!
 //! [1]: http://www.netlib.org/blas/
 
