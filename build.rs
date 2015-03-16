@@ -1,5 +1,3 @@
-#![feature(path)]
-
 use std::{env, process};
 use std::path::PathBuf;
 
