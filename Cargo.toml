@@ -1,6 +1,6 @@
 [package]
 name = "libblas-sys"
-version = "0.0.14"
+version = "0.0.15"
 authors = ["Corey Richardson <corey@octayn.net>", "Ivan Ukhov <ivan.ukhov@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/stainless-steel/libblas-sys"
@@ -17,8 +17,7 @@ openblas = ["openblas-blas-provider"]
 netlib = ["netlib-blas-provider"]
 
 [dependencies.openblas-blas-provider]
-#version = "*"
-git = "https://github.com/cmr/openblas-blas-provider"
+version = "*"
 optional = true
 
 [dependencies.netlib-blas-provider]
