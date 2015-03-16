@@ -10,7 +10,7 @@ The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 2. Implement your idea.
 3. Create a pull request.
 
-[1]: http://www.netlib.org/blas/
+[1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
 [travis-svg]: https://travis-ci.org/stainless-steel/libblas-sys.svg?branch=master
 [travis-url]: https://travis-ci.org/stainless-steel/libblas-sys

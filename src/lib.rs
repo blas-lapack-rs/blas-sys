@@ -1,6 +1,6 @@
 //! Bindings to the [Basic Linear Algebra Subprograms][1].
 //!
-//! [1]: http://www.netlib.org/blas/
+//! [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
 #![allow(bad_style)]
 
