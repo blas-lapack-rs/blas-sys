@@ -6,7 +6,7 @@ license = "MIT"
 repository = "https://github.com/stainless-steel/libblas-sys"
 homepage = "https://github.com/stainless-steel/libblas-sys"
 documentation = "https://stainless-steel.github.io/libblas-sys"
-description = "The package facilitates static linking with the Basic Linear Algebra Subprograms."
+description = "The package provides bindings to the Basic Linear Algebra Subprograms."
 
 [dependencies]
 libc = "*"

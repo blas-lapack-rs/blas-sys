@@ -1,7 +1,6 @@
 # libblas-sys [![Build Status][travis-svg]][travis-url]
 
-The package facilitates static linking with the [Basic Linear Algebra
-Subprograms][1].
+The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 
 ## [Documentation][docs]
 
