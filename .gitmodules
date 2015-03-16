@@ -1,3 +1,0 @@
-[submodule "blas"]
-	path = blas
-	url = https://github.com/copies/lapack.git
