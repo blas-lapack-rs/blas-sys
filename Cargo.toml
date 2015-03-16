@@ -7,8 +7,20 @@ repository = "https://github.com/stainless-steel/libblas-sys"
 homepage = "https://github.com/stainless-steel/libblas-sys"
 documentation = "https://stainless-steel.github.io/libblas-sys"
 description = "The package facilitates static linking with the Basic Linear Algebra Subprograms."
-links = "libblas"
-build = "build.rs"
 
 [dependencies]
 libc = "*"
+
+[features]
+default = ["openblas"]
+openblas = ["openblas-blas-provider"]
+netlib = ["netlib-blas-provider"]
+
+[dependencies.openblas-blas-provider]
+#version = "*"
+git = "https://github.com/cmr/openblas-blas-provider"
+optional = true
+
+[dependencies.netlib-blas-provider]
+version = "*"
+optional = true
