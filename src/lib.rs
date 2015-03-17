@@ -12,7 +12,7 @@ extern crate "netlib-blas-provider" as raw;
 
 extern crate libc;
 
-use libc::{c_uint, c_int, c_char, c_double, c_float};
+use libc::{c_uint, c_int, c_char, c_double, c_float, size_t};
 
 pub type openblas_complex_float = [c_float; 2];
 pub type openblas_complex_double = [c_float; 2];
@@ -62,10 +62,10 @@ extern "C" {
     pub fn cblas_dnrm2(N: blasint, X: *const c_double, incX: blasint) -> c_double;
     pub fn cblas_scnrm2(N: blasint, X: *const c_float, incX: blasint) -> c_float;
     pub fn cblas_dznrm2(N: blasint, X: *const c_double, incX: blasint) -> c_double;
-    pub fn cblas_isamax(n: blasint, x: *const c_float, incx: blasint) -> c_int;
-    pub fn cblas_idamax(n: blasint, x: *const c_double, incx: blasint) -> c_int;
-    pub fn cblas_icamax(n: blasint, x: *const c_float, incx: blasint) -> c_int;
-    pub fn cblas_izamax(n: blasint, x: *const c_double, incx: blasint) -> c_int;
+    pub fn cblas_isamax(n: blasint, x: *const c_float, incx: blasint) -> size_t;
+    pub fn cblas_idamax(n: blasint, x: *const c_double, incx: blasint) -> size_t;
+    pub fn cblas_icamax(n: blasint, x: *const c_float, incx: blasint) -> size_t;
+    pub fn cblas_izamax(n: blasint, x: *const c_double, incx: blasint) -> size_t;
     pub fn cblas_saxpy(n: blasint, alpha: c_float, x: *const c_float, incx: blasint, y: *mut c_float, incy: blasint) -> ();
     pub fn cblas_daxpy(n: blasint, alpha: c_double, x: *const c_double, incx: blasint, y: *mut c_double, incy: blasint) -> ();
     pub fn cblas_caxpy(n: blasint, alpha: *const c_float, x: *const c_float, incx: blasint, y: *mut c_float, incy: blasint) -> ();
