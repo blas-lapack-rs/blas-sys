@@ -1,5 +1,9 @@
 //! Bindings to the [Basic Linear Algebra Subprograms][1].
 //!
+//! This crate binds CBLAS, and the headers aren't particularly good. In some functions, `*mut
+//! c_double` is treated a pointer to a double, and in others as a pointer to a `double _Complex`.
+//! Some functions may also be missing.
+//!
 //! [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
 #![allow(bad_style)]
@@ -15,7 +19,7 @@ extern crate libc;
 use libc::{c_uint, c_int, c_char, c_double, c_float, size_t};
 
 pub type openblas_complex_float = [c_float; 2];
-pub type openblas_complex_double = [c_float; 2];
+pub type openblas_complex_double = [c_double; 2];
 
 pub type blasint = c_int;
 
