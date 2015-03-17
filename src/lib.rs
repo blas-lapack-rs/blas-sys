@@ -1,8 +1,8 @@
 //! Bindings to the [Basic Linear Algebra Subprograms][1].
 //!
 //! This crate binds CBLAS, and the headers aren't particularly good. In some functions, `*mut
-//! c_double` is treated a pointer to a double, and in others as a pointer to a `double _Complex`.
-//! Some functions may also be missing.
+//! c_double` is treated as a pointer to a double, and in others as a pointer to a `double
+//! _Complex`. Some functions may also be missing.
 //!
 //! [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
