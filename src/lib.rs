@@ -84,8 +84,12 @@ extern "C" {
     pub fn cblas_zswap(n: blasint, x: *mut c_double, incx: blasint, y: *mut c_double, incy: blasint) -> ();
     pub fn cblas_srot(N: blasint, X: *mut c_float, incX: blasint, Y: *mut c_float, incY: blasint, c: c_float, s: c_float) -> ();
     pub fn cblas_drot(N: blasint, X: *mut c_double, incX: blasint, Y: *mut c_double, incY: blasint, c: c_double, s: c_double) -> ();
+    pub fn cblas_csrot(N: blasint, X: *mut c_float, incX: blasint, Y: *mut c_float, incY: blasint, c: c_float, s: c_float) -> ();
+    pub fn cblas_zdrot(N: blasint, X: *mut c_float, incX: blasint, Y: *mut c_float, incY: blasint, c: c_float, s: c_float) -> ();
     pub fn cblas_srotg(a: *mut c_float, b: *mut c_float, c: *mut c_float, s: *mut c_float) -> ();
     pub fn cblas_drotg(a: *mut c_double, b: *mut c_double, c: *mut c_double, s: *mut c_double) -> ();
+    pub fn cblas_crotg(a: *mut c_float, b: *mut c_float, c: *mut c_float, s: *mut c_float) -> ();
+    pub fn cblas_zrotg(a: *mut c_double, b: *mut c_double, c: *mut c_double, s: *mut c_double) -> ();
     pub fn cblas_srotm(N: blasint, X: *mut c_float, incX: blasint, Y: *mut c_float, incY: blasint, P: *const c_float) -> ();
     pub fn cblas_drotm(N: blasint, X: *mut c_double, incX: blasint, Y: *mut c_double, incY: blasint, P: *const c_double) -> ();
     pub fn cblas_srotmg(d1: *mut c_float, d2: *mut c_float, b1: *mut c_float, b2: c_float, P: *mut c_float) -> ();
