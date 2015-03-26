@@ -9,10 +9,10 @@
 #![allow(bad_style)]
 
 #[cfg(feature = "openblas")]
-extern crate "openblas-blas-provider" as raw;
+extern crate openblas_blas_provider as raw;
 
 #[cfg(feature = "netlib")]
-extern crate "netlib-blas-provider" as raw;
+extern crate netlib_blas_provider as raw;
 
 extern crate libc;
 
