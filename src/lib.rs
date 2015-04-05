@@ -32,9 +32,6 @@ pub struct complex_double {
     pub imag: c_double,
 }
 
-pub type openblas_complex_float = [c_float; 2];
-pub type openblas_complex_double = [c_double; 2];
-
 pub type blasint = c_int;
 
 pub type CBLAS_ORDER = c_uint;
@@ -64,14 +61,14 @@ extern "C" {
     pub fn cblas_dsdot(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint) -> c_double;
     pub fn cblas_sdot(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint) -> c_float;
     pub fn cblas_ddot(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint) -> c_double;
-    pub fn cblas_cdotu(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint) -> openblas_complex_float;
-    pub fn cblas_cdotc(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint) -> openblas_complex_float;
-    pub fn cblas_zdotu(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint) -> openblas_complex_double;
-    pub fn cblas_zdotc(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint) -> openblas_complex_double;
-    pub fn cblas_cdotu_sub(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint, ret: *mut openblas_complex_float) -> ();
-    pub fn cblas_cdotc_sub(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint, ret: *mut openblas_complex_float) -> ();
-    pub fn cblas_zdotu_sub(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint, ret: *mut openblas_complex_double) -> ();
-    pub fn cblas_zdotc_sub(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint, ret: *mut openblas_complex_double) -> ();
+    pub fn cblas_cdotu(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint) -> complex_float;
+    pub fn cblas_cdotc(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint) -> complex_float;
+    pub fn cblas_zdotu(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint) -> complex_double;
+    pub fn cblas_zdotc(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint) -> complex_double;
+    pub fn cblas_cdotu_sub(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint, ret: *mut complex_float) -> ();
+    pub fn cblas_cdotc_sub(n: blasint, x: *const c_float, incx: blasint, y: *const c_float, incy: blasint, ret: *mut complex_float) -> ();
+    pub fn cblas_zdotu_sub(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint, ret: *mut complex_double) -> ();
+    pub fn cblas_zdotc_sub(n: blasint, x: *const c_double, incx: blasint, y: *const c_double, incy: blasint, ret: *mut complex_double) -> ();
     pub fn cblas_sasum(n: blasint, x: *const c_float, incx: blasint) -> c_float;
     pub fn cblas_dasum(n: blasint, x: *const c_double, incx: blasint) -> c_double;
     pub fn cblas_scasum(n: blasint, x: *const c_float, incx: blasint) -> c_float;
