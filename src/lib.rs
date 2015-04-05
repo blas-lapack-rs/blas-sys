@@ -24,6 +24,12 @@ pub type int = c_int;
 #[cfg(feature = "netlib")]
 pub type int = c_int;
 
+#[cfg(feature = "openblas")]
+pub type CBLAS_INDEX = size_t;
+
+#[cfg(feature = "netlib")]
+pub type CBLAS_INDEX = c_int;
+
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct complex_float {
@@ -81,10 +87,10 @@ extern "C" {
     pub fn cblas_dnrm2(N: int, X: *const c_double, incX: int) -> c_double;
     pub fn cblas_scnrm2(N: int, X: *const c_float, incX: int) -> c_float;
     pub fn cblas_dznrm2(N: int, X: *const c_double, incX: int) -> c_double;
-    pub fn cblas_isamax(n: int, x: *const c_float, incx: int) -> size_t;
-    pub fn cblas_idamax(n: int, x: *const c_double, incx: int) -> size_t;
-    pub fn cblas_icamax(n: int, x: *const c_float, incx: int) -> size_t;
-    pub fn cblas_izamax(n: int, x: *const c_double, incx: int) -> size_t;
+    pub fn cblas_isamax(n: int, x: *const c_float, incx: int) -> CBLAS_INDEX;
+    pub fn cblas_idamax(n: int, x: *const c_double, incx: int) -> CBLAS_INDEX;
+    pub fn cblas_icamax(n: int, x: *const c_float, incx: int) -> CBLAS_INDEX;
+    pub fn cblas_izamax(n: int, x: *const c_double, incx: int) -> CBLAS_INDEX;
     pub fn cblas_saxpy(n: int, alpha: c_float, x: *const c_float, incx: int, y: *mut c_float, incy: int) -> ();
     pub fn cblas_daxpy(n: int, alpha: c_double, x: *const c_double, incx: int, y: *mut c_double, incy: int) -> ();
     pub fn cblas_caxpy(n: int, alpha: *const c_float, x: *const c_float, incx: int, y: *mut c_float, incy: int) -> ();
