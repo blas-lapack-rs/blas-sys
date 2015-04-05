@@ -20,14 +20,14 @@ use libc::{c_uint, c_int, c_char, c_double, c_float, size_t};
 
 #[derive(Clone, Copy)]
 #[repr(C)]
-pub struct float_complex {
+pub struct complex_float {
     pub real: c_float,
     pub imag: c_float,
 }
 
 #[derive(Clone, Copy)]
 #[repr(C)]
-pub struct double_complex {
+pub struct complex_double {
     pub real: c_double,
     pub imag: c_double,
 }
@@ -253,7 +253,7 @@ extern "C" {
     pub fn sdsdot_(n: *const c_int, sb: *const c_float, x: *const c_float, incx: *const c_int,
                    y: *const c_float, incy: *const c_int) -> c_float;
     pub fn snrm2_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_float;
-    pub fn scnrm2_(n: *const c_int, x: *const float_complex, incx: *const c_int) -> c_float;
+    pub fn scnrm2_(n: *const c_int, x: *const complex_float, incx: *const c_int) -> c_float;
     pub fn sasum_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_float;
     pub fn isamax_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_int;
 
@@ -277,53 +277,53 @@ extern "C" {
     pub fn dsdot_(n: *const c_int, x: *const c_float, incx: *const c_int, y: *const c_float,
                   incy: *const c_int) -> c_double;
     pub fn dnrm2_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_double;
-    pub fn dznrm2_(n: *const c_int, x: *const double_complex, incx: *const c_int) -> c_double;
+    pub fn dznrm2_(n: *const c_int, x: *const complex_double, incx: *const c_int) -> c_double;
     pub fn dasum_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_double;
     pub fn idamax_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_int;
 
     // Complex
-    pub fn crotg_(a: *mut float_complex, b: *const float_complex, c: *mut c_float,
-                  s: *mut float_complex);
-    pub fn csrot_(n: *const c_int, x: *mut float_complex, incx: *const c_int,
-                  y: *mut float_complex, incy: *const c_int, c: *const c_float, s: *const c_float);
-    pub fn cswap_(n: *const c_int, x: *mut float_complex, incx: *const c_int,
-                  y: *mut float_complex, incy: *const c_int);
-    pub fn cscal_(n: *const c_int, a: *const float_complex, x: *mut float_complex,
+    pub fn crotg_(a: *mut complex_float, b: *const complex_float, c: *mut c_float,
+                  s: *mut complex_float);
+    pub fn csrot_(n: *const c_int, x: *mut complex_float, incx: *const c_int,
+                  y: *mut complex_float, incy: *const c_int, c: *const c_float, s: *const c_float);
+    pub fn cswap_(n: *const c_int, x: *mut complex_float, incx: *const c_int,
+                  y: *mut complex_float, incy: *const c_int);
+    pub fn cscal_(n: *const c_int, a: *const complex_float, x: *mut complex_float,
                   incx: *const c_int);
-    pub fn csscal_(n: *const c_int, a: *const c_float, x: *mut float_complex, incx: *const c_int);
-    pub fn ccopy_(n: *const c_int, x: *const float_complex, incx: *const c_int,
-                  y: *mut float_complex, incy: *const c_int);
-    pub fn caxpy_(n: *const c_int, alpha: *const float_complex, x: *const float_complex,
-                  incx: *const c_int, y: *mut float_complex, incy: *const c_int);
-    pub fn cdotu_(pres: *mut float_complex, n: *const c_int, x: *const float_complex,
-                  incx: *const c_int, y: *const float_complex, incy: *const c_int);
-    pub fn cdotc_(pres: *mut float_complex, n: *const c_int, x: *const float_complex,
-                  incx: *const c_int, y: *const float_complex, incy: *const c_int);
-    pub fn scasum_(n: *const c_int, x: *const float_complex, incx: *const c_int) -> c_float;
-    pub fn icamax_(n: *const c_int, x: *const float_complex, incx: *const c_int) -> c_int;
+    pub fn csscal_(n: *const c_int, a: *const c_float, x: *mut complex_float, incx: *const c_int);
+    pub fn ccopy_(n: *const c_int, x: *const complex_float, incx: *const c_int,
+                  y: *mut complex_float, incy: *const c_int);
+    pub fn caxpy_(n: *const c_int, alpha: *const complex_float, x: *const complex_float,
+                  incx: *const c_int, y: *mut complex_float, incy: *const c_int);
+    pub fn cdotu_(pres: *mut complex_float, n: *const c_int, x: *const complex_float,
+                  incx: *const c_int, y: *const complex_float, incy: *const c_int);
+    pub fn cdotc_(pres: *mut complex_float, n: *const c_int, x: *const complex_float,
+                  incx: *const c_int, y: *const complex_float, incy: *const c_int);
+    pub fn scasum_(n: *const c_int, x: *const complex_float, incx: *const c_int) -> c_float;
+    pub fn icamax_(n: *const c_int, x: *const complex_float, incx: *const c_int) -> c_int;
 
     // Double complex
-    pub fn zrotg_(a: *mut double_complex, b: *const double_complex, c: *mut c_double,
-                  s: *mut double_complex);
-    pub fn zdrot_(n: *const c_int, x: *mut double_complex, incx: *const c_int,
-                  y: *mut double_complex, incy: *const c_int, c: *const c_double,
+    pub fn zrotg_(a: *mut complex_double, b: *const complex_double, c: *mut c_double,
+                  s: *mut complex_double);
+    pub fn zdrot_(n: *const c_int, x: *mut complex_double, incx: *const c_int,
+                  y: *mut complex_double, incy: *const c_int, c: *const c_double,
                   s: *const c_double);
-    pub fn zswap_(n: *const c_int, x: *mut double_complex, incx: *const c_int,
-                  y: *mut double_complex, incy: *const c_int);
-    pub fn zscal_(n: *const c_int, a: *const double_complex, x: *mut double_complex,
+    pub fn zswap_(n: *const c_int, x: *mut complex_double, incx: *const c_int,
+                  y: *mut complex_double, incy: *const c_int);
+    pub fn zscal_(n: *const c_int, a: *const complex_double, x: *mut complex_double,
                   incx: *const c_int);
-    pub fn zdscal_(n: *const c_int, a: *const c_double, x: *mut double_complex,
+    pub fn zdscal_(n: *const c_int, a: *const c_double, x: *mut complex_double,
                    incx: *const c_int);
-    pub fn zcopy_(n: *const c_int, x: *const double_complex, incx: *const c_int,
-                  y: *mut double_complex, incy: *const c_int);
-    pub fn zaxpy_(n: *const c_int, alpha: *const double_complex, x: *const double_complex,
-                  incx: *const c_int, y: *mut double_complex, incy: *const c_int);
-    pub fn zdotu_(pres: *mut double_complex, n: *const c_int, x: *const double_complex,
-                  incx: *const c_int, y: *const double_complex, incy: *const c_int);
-    pub fn zdotc_(pres: *mut double_complex, n: *const c_int, x: *const double_complex,
-                  incx: *const c_int, y: *const double_complex, incy: *const c_int);
-    pub fn dzasum_(n: *const c_int, x: *const double_complex, incx: *const c_int) -> c_double;
-    pub fn izamax_(n: *const c_int, x: *const double_complex, incx: *const c_int) -> c_int;
+    pub fn zcopy_(n: *const c_int, x: *const complex_double, incx: *const c_int,
+                  y: *mut complex_double, incy: *const c_int);
+    pub fn zaxpy_(n: *const c_int, alpha: *const complex_double, x: *const complex_double,
+                  incx: *const c_int, y: *mut complex_double, incy: *const c_int);
+    pub fn zdotu_(pres: *mut complex_double, n: *const c_int, x: *const complex_double,
+                  incx: *const c_int, y: *const complex_double, incy: *const c_int);
+    pub fn zdotc_(pres: *mut complex_double, n: *const c_int, x: *const complex_double,
+                  incx: *const c_int, y: *const complex_double, incy: *const c_int);
+    pub fn dzasum_(n: *const c_int, x: *const complex_double, incx: *const c_int) -> c_double;
+    pub fn izamax_(n: *const c_int, x: *const complex_double, incx: *const c_int) -> c_int;
 }
 
 // Level 2
@@ -420,112 +420,112 @@ extern "C" {
 
     // Complex
     pub fn cgemv_(trans: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                  x: *const float_complex, incx: *const c_int, beta: *const float_complex,
-                  y: *mut float_complex, incy: *const c_int);
+                  alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                  x: *const complex_float, incx: *const c_int, beta: *const complex_float,
+                  y: *mut complex_float, incy: *const c_int);
     pub fn cgbmv_(trans: *const c_char, m: *const c_int, n: *const c_int, kl: *const c_int,
-                  ku: *const c_int, alpha: *const float_complex, a: *const float_complex,
-                  lda: *const c_int, x: *const float_complex, incx: *const c_int,
-                  beta: *const float_complex, y: *mut float_complex, incy: *const c_int);
-    pub fn chemv_(uplo: *const c_char, n: *const c_int, alpha: *const float_complex,
-                  a: *const float_complex, lda: *const c_int, x: *const float_complex,
-                  incx: *const c_int, beta: *const float_complex, y: *mut float_complex,
+                  ku: *const c_int, alpha: *const complex_float, a: *const complex_float,
+                  lda: *const c_int, x: *const complex_float, incx: *const c_int,
+                  beta: *const complex_float, y: *mut complex_float, incy: *const c_int);
+    pub fn chemv_(uplo: *const c_char, n: *const c_int, alpha: *const complex_float,
+                  a: *const complex_float, lda: *const c_int, x: *const complex_float,
+                  incx: *const c_int, beta: *const complex_float, y: *mut complex_float,
                   incy: *const c_int);
     pub fn chbmv_(uplo: *const c_char, n: *const c_int, k: *const c_int,
-                  alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                  x: *const float_complex, incx: *const c_int, beta: *const float_complex,
-                  y: *mut float_complex, incy: *const c_int);
-    pub fn chpmv_(uplo: *const c_char, n: *const c_int, alpha: *const float_complex,
-                  ap: *const float_complex, x: *const float_complex, incx: *const c_int,
-                  beta: *const float_complex, y: *mut float_complex, incy: *const c_int);
+                  alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                  x: *const complex_float, incx: *const c_int, beta: *const complex_float,
+                  y: *mut complex_float, incy: *const c_int);
+    pub fn chpmv_(uplo: *const c_char, n: *const c_int, alpha: *const complex_float,
+                  ap: *const complex_float, x: *const complex_float, incx: *const c_int,
+                  beta: *const complex_float, y: *mut complex_float, incy: *const c_int);
     pub fn ctrmv_(uplo: *const c_char, transa: *const c_char, diag: *const c_char, n: *const c_int,
-                  a: *const float_complex, lda: *const c_int, b: *mut float_complex,
+                  a: *const complex_float, lda: *const c_int, b: *mut complex_float,
                   incx: *const c_int);
     pub fn ctbmv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  k: *const c_int, a: *const float_complex, lda: *const c_int,
-                  x: *mut float_complex, incx: *const c_int);
+                  k: *const c_int, a: *const complex_float, lda: *const c_int,
+                  x: *mut complex_float, incx: *const c_int);
     pub fn ctpmv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  ap: *const float_complex, x: *mut float_complex, incx: *const c_int);
+                  ap: *const complex_float, x: *mut complex_float, incx: *const c_int);
     pub fn ctrsv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  a: *const float_complex, lda: *const c_int, x: *mut float_complex,
+                  a: *const complex_float, lda: *const c_int, x: *mut complex_float,
                   incx: *const c_int);
     pub fn ctbsv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  k: *const c_int, a: *const float_complex, lda: *const c_int,
-                  x: *mut float_complex, incx: *const c_int);
+                  k: *const c_int, a: *const complex_float, lda: *const c_int,
+                  x: *mut complex_float, incx: *const c_int);
     pub fn ctpsv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  ap: *const float_complex, x: *mut float_complex, incx: *const c_int);
-    pub fn cgeru_(m: *const c_int, n: *const c_int, alpha: *const float_complex,
-                  x: *const float_complex, incx: *const c_int, y: *const float_complex,
-                  incy: *const c_int, a: *mut float_complex, lda: *const c_int);
-    pub fn cgerc_(m: *const c_int, n: *const c_int, alpha: *const float_complex,
-                  x: *const float_complex, incx: *const c_int, y: *const float_complex,
-                  incy: *const c_int, a: *mut float_complex, lda: *const c_int);
+                  ap: *const complex_float, x: *mut complex_float, incx: *const c_int);
+    pub fn cgeru_(m: *const c_int, n: *const c_int, alpha: *const complex_float,
+                  x: *const complex_float, incx: *const c_int, y: *const complex_float,
+                  incy: *const c_int, a: *mut complex_float, lda: *const c_int);
+    pub fn cgerc_(m: *const c_int, n: *const c_int, alpha: *const complex_float,
+                  x: *const complex_float, incx: *const c_int, y: *const complex_float,
+                  incy: *const c_int, a: *mut complex_float, lda: *const c_int);
     pub fn cher_(uplo: *const c_char, n: *const c_int, alpha: *const c_float,
-                 x: *const float_complex, incx: *const c_int, a: *mut float_complex,
+                 x: *const complex_float, incx: *const c_int, a: *mut complex_float,
                  lda: *const c_int);
     pub fn chpr_(uplo: *const c_char, n: *const c_int, alpha: *const c_float,
-                 x: *const float_complex, incx: *const c_int, ap: *mut float_complex);
-    pub fn chpr2_(uplo: *const c_char, n: *const c_int, alpha: *const float_complex,
-                  x: *const float_complex, incx: *const c_int, y: *const float_complex,
-                  incy: *const c_int, ap: *mut float_complex);
-    pub fn cher2_(uplo: *const c_char, n: *const c_int, alpha: *const float_complex, x: *const
-                  float_complex, incx: *const c_int, y: *const float_complex, incy: *const c_int,
-                  a: *mut float_complex, lda: *const c_int);
+                 x: *const complex_float, incx: *const c_int, ap: *mut complex_float);
+    pub fn chpr2_(uplo: *const c_char, n: *const c_int, alpha: *const complex_float,
+                  x: *const complex_float, incx: *const c_int, y: *const complex_float,
+                  incy: *const c_int, ap: *mut complex_float);
+    pub fn cher2_(uplo: *const c_char, n: *const c_int, alpha: *const complex_float, x: *const
+                  complex_float, incx: *const c_int, y: *const complex_float, incy: *const c_int,
+                  a: *mut complex_float, lda: *const c_int);
 
     // Double complex
     pub fn zgemv_(trans: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                  x: *const double_complex, incx: *const c_int, beta: *const double_complex,
-                  y: *mut double_complex, incy: *const c_int);
+                  alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                  x: *const complex_double, incx: *const c_int, beta: *const complex_double,
+                  y: *mut complex_double, incy: *const c_int);
     pub fn zgbmv_(trans: *const c_char, m: *const c_int, n: *const c_int, kl: *const c_int,
-                  ku: *const c_int, alpha: *const double_complex, a: *const double_complex,
-                  lda: *const c_int, x: *const double_complex, incx: *const c_int,
-                  beta: *const double_complex, y: *mut double_complex, incy: *const c_int);
-    pub fn zhemv_(uplo: *const c_char, n: *const c_int, alpha: *const double_complex,
-                  a: *const double_complex, lda: *const c_int, x: *const double_complex,
-                  incx: *const c_int, beta: *const double_complex, y: *mut double_complex,
+                  ku: *const c_int, alpha: *const complex_double, a: *const complex_double,
+                  lda: *const c_int, x: *const complex_double, incx: *const c_int,
+                  beta: *const complex_double, y: *mut complex_double, incy: *const c_int);
+    pub fn zhemv_(uplo: *const c_char, n: *const c_int, alpha: *const complex_double,
+                  a: *const complex_double, lda: *const c_int, x: *const complex_double,
+                  incx: *const c_int, beta: *const complex_double, y: *mut complex_double,
                   incy: *const c_int);
     pub fn zhbmv_(uplo: *const c_char, n: *const c_int, k: *const c_int,
-                  alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                  x: *const double_complex, incx: *const c_int, beta: *const double_complex,
-                  y: *mut double_complex, incy: *const c_int);
-    pub fn zhpmv_(uplo: *const c_char, n: *const c_int, alpha: *const double_complex,
-                  ap: *const double_complex, x: *const double_complex, incx: *const c_int,
-                  beta: *const double_complex, y: *mut double_complex, incy: *const c_int);
+                  alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                  x: *const complex_double, incx: *const c_int, beta: *const complex_double,
+                  y: *mut complex_double, incy: *const c_int);
+    pub fn zhpmv_(uplo: *const c_char, n: *const c_int, alpha: *const complex_double,
+                  ap: *const complex_double, x: *const complex_double, incx: *const c_int,
+                  beta: *const complex_double, y: *mut complex_double, incy: *const c_int);
     pub fn ztrmv_(uplo: *const c_char, transa: *const c_char, diag: *const c_char, n: *const c_int,
-                  a: *const double_complex, lda: *const c_int, b: *mut double_complex,
+                  a: *const complex_double, lda: *const c_int, b: *mut complex_double,
                   incx: *const c_int);
     pub fn ztbmv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
                   k: *const c_int,
-                  a: *const double_complex, lda: *const c_int, x: *mut double_complex,
+                  a: *const complex_double, lda: *const c_int, x: *mut complex_double,
                   incx: *const c_int);
     pub fn ztpmv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  ap: *const double_complex, x: *mut double_complex, incx: *const c_int);
+                  ap: *const complex_double, x: *mut complex_double, incx: *const c_int);
     pub fn ztrsv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  a: *const double_complex, lda: *const c_int, x: *mut double_complex,
+                  a: *const complex_double, lda: *const c_int, x: *mut complex_double,
                   incx: *const c_int);
     pub fn ztbsv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  k: *const c_int, a: *const double_complex, lda: *const c_int,
-                  x: *mut double_complex, incx: *const c_int);
+                  k: *const c_int, a: *const complex_double, lda: *const c_int,
+                  x: *mut complex_double, incx: *const c_int);
     pub fn ztpsv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  ap: *const double_complex, x: *mut double_complex, incx: *const c_int);
-    pub fn zgeru_(m: *const c_int, n: *const c_int, alpha: *const double_complex,
-                  x: *const double_complex, incx: *const c_int, y: *const double_complex,
-                  incy: *const c_int, a: *mut double_complex, lda: *const c_int);
-    pub fn zgerc_(m: *const c_int, n: *const c_int, alpha: *const double_complex,
-                  x: *const double_complex, incx: *const c_int, y: *const double_complex,
-                  incy: *const c_int, a: *mut double_complex, lda: *const c_int);
+                  ap: *const complex_double, x: *mut complex_double, incx: *const c_int);
+    pub fn zgeru_(m: *const c_int, n: *const c_int, alpha: *const complex_double,
+                  x: *const complex_double, incx: *const c_int, y: *const complex_double,
+                  incy: *const c_int, a: *mut complex_double, lda: *const c_int);
+    pub fn zgerc_(m: *const c_int, n: *const c_int, alpha: *const complex_double,
+                  x: *const complex_double, incx: *const c_int, y: *const complex_double,
+                  incy: *const c_int, a: *mut complex_double, lda: *const c_int);
     pub fn zher_(uplo: *const c_char, n: *const c_int, alpha: *const c_double,
-                 x: *const double_complex, incx: *const c_int, a: *mut double_complex,
+                 x: *const complex_double, incx: *const c_int, a: *mut complex_double,
                  lda: *const c_int);
     pub fn zhpr_(uplo: *const c_char, n: *const c_int, alpha: *const c_double,
-                 x: *const double_complex, incx: *const c_int, ap: *mut double_complex);
-    pub fn zher2_(uplo: *const c_char, n: *const c_int, alpha: *const double_complex,
-                  x: *const double_complex, incx: *const c_int, y: *const double_complex,
-                  incy: *const c_int, a: *mut double_complex, lda: *const c_int);
-    pub fn zhpr2_(uplo: *const c_char, n: *const c_int, alpha: *const double_complex,
-                  x: *const double_complex, incx: *const c_int, y: *const double_complex,
-                  incy: *const c_int, ap: *mut double_complex);
+                 x: *const complex_double, incx: *const c_int, ap: *mut complex_double);
+    pub fn zher2_(uplo: *const c_char, n: *const c_int, alpha: *const complex_double,
+                  x: *const complex_double, incx: *const c_int, y: *const complex_double,
+                  incy: *const c_int, a: *mut complex_double, lda: *const c_int);
+    pub fn zhpr2_(uplo: *const c_char, n: *const c_int, alpha: *const complex_double,
+                  x: *const complex_double, incx: *const c_int, y: *const complex_double,
+                  incy: *const c_int, ap: *mut complex_double);
 }
 
 // Level 3
@@ -578,73 +578,73 @@ extern "C" {
 
     // Complex
     pub fn cgemm_(transa: *const c_char, transb: *const c_char, m: *const c_int, n: *const c_int,
-                  k: *const c_int, alpha: *const float_complex, a: *const float_complex,
-                  lda: *const c_int, b: *const float_complex, ldb: *const c_int,
-                  beta: *const float_complex, c: *mut float_complex, ldc: *const c_int);
+                  k: *const c_int, alpha: *const complex_float, a: *const complex_float,
+                  lda: *const c_int, b: *const complex_float, ldb: *const c_int,
+                  beta: *const complex_float, c: *mut complex_float, ldc: *const c_int);
     pub fn csymm_(side: *const c_char, uplo: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                  b: *const float_complex, ldb: *const c_int, beta: *const float_complex,
-                  c: *mut float_complex, ldc: *const c_int);
+                  alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                  b: *const complex_float, ldb: *const c_int, beta: *const complex_float,
+                  c: *mut complex_float, ldc: *const c_int);
     pub fn chemm_(side: *const c_char, uplo: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                  b: *const float_complex, ldb: *const c_int, beta: *const float_complex,
-                  c: *mut float_complex, ldc: *const c_int);
+                  alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                  b: *const complex_float, ldb: *const c_int, beta: *const complex_float,
+                  c: *mut complex_float, ldc: *const c_int);
     pub fn csyrk_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                  alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                  beta: *const float_complex, c: *mut float_complex, ldc: *const c_int);
+                  alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                  beta: *const complex_float, c: *mut complex_float, ldc: *const c_int);
     pub fn cherk_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                  alpha: *const c_float, a: *const float_complex, lda: *const c_int,
-                  beta: *const c_float, c: *mut float_complex, ldc: *const c_int);
+                  alpha: *const c_float, a: *const complex_float, lda: *const c_int,
+                  beta: *const c_float, c: *mut complex_float, ldc: *const c_int);
     pub fn csyr2k_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                   alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                   b: *const float_complex, ldb: *const c_int, beta: *const float_complex,
-                   c: *mut float_complex, ldc: *const c_int);
+                   alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                   b: *const complex_float, ldb: *const c_int, beta: *const complex_float,
+                   c: *mut complex_float, ldc: *const c_int);
     pub fn cher2k_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                   alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                   b: *const float_complex, ldb: *const c_int, beta: *const c_float,
-                   c: *mut float_complex, ldc: *const c_int);
+                   alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                   b: *const complex_float, ldb: *const c_int, beta: *const c_float,
+                   c: *mut complex_float, ldc: *const c_int);
     pub fn ctrmm_(side: *const c_char, uplo: *const c_char, transa: *const c_char,
                   diag: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                  b: *mut float_complex, ldb: *const c_int);
+                  alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                  b: *mut complex_float, ldb: *const c_int);
     pub fn ctrsm_(side: *const c_char, uplo: *const c_char, transa: *const c_char,
                   diag: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const float_complex, a: *const float_complex, lda: *const c_int,
-                  b: *mut float_complex, ldb: *const c_int);
+                  alpha: *const complex_float, a: *const complex_float, lda: *const c_int,
+                  b: *mut complex_float, ldb: *const c_int);
 
     // Double complex
     pub fn zgemm_(transa: *const c_char, transb: *const c_char, m: *const c_int, n: *const c_int,
-                  k: *const c_int, alpha: *const double_complex, a: *const double_complex,
-                  lda: *const c_int, b: *const double_complex, ldb: *const c_int,
-                  beta: *const double_complex, c: *mut double_complex, ldc: *const c_int);
+                  k: *const c_int, alpha: *const complex_double, a: *const complex_double,
+                  lda: *const c_int, b: *const complex_double, ldb: *const c_int,
+                  beta: *const complex_double, c: *mut complex_double, ldc: *const c_int);
     pub fn zsymm_(side: *const c_char, uplo: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                  b: *const double_complex, ldb: *const c_int, beta: *const double_complex,
-                  c: *mut double_complex, ldc: *const c_int);
+                  alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                  b: *const complex_double, ldb: *const c_int, beta: *const complex_double,
+                  c: *mut complex_double, ldc: *const c_int);
     pub fn zhemm_(side: *const c_char, uplo: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                  b: *const double_complex, ldb: *const c_int, beta: *const double_complex,
-                  c: *mut double_complex, ldc: *const c_int);
+                  alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                  b: *const complex_double, ldb: *const c_int, beta: *const complex_double,
+                  c: *mut complex_double, ldc: *const c_int);
     pub fn zsyrk_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                  alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                  beta: *const double_complex, c: *mut double_complex, ldc: *const c_int);
+                  alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                  beta: *const complex_double, c: *mut complex_double, ldc: *const c_int);
     pub fn zherk_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                  alpha: *const c_double, a: *const double_complex, lda: *const c_int,
-                  beta: *const c_double, c: *mut double_complex, ldc: *const c_int);
+                  alpha: *const c_double, a: *const complex_double, lda: *const c_int,
+                  beta: *const c_double, c: *mut complex_double, ldc: *const c_int);
     pub fn zsyr2k_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                   alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                   b: *const double_complex, ldb: *const c_int, beta: *const double_complex,
-                   c: *mut double_complex, ldc: *const c_int);
+                   alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                   b: *const complex_double, ldb: *const c_int, beta: *const complex_double,
+                   c: *mut complex_double, ldc: *const c_int);
     pub fn zher2k_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                   alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                   b: *const double_complex, ldb: *const c_int, beta: *const c_double,
-                   c: *mut double_complex, ldc: *const c_int);
+                   alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                   b: *const complex_double, ldb: *const c_int, beta: *const c_double,
+                   c: *mut complex_double, ldc: *const c_int);
     pub fn ztrmm_(side: *const c_char, uplo: *const c_char, transa: *const c_char,
                   diag: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                  b: *mut double_complex, ldb: *const c_int);
+                  alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                  b: *mut complex_double, ldb: *const c_int);
     pub fn ztrsm_(side: *const c_char, uplo: *const c_char, transa: *const c_char,
                   diag: *const c_char, m: *const c_int, n: *const c_int,
-                  alpha: *const double_complex, a: *const double_complex, lda: *const c_int,
-                  b: *mut double_complex, ldb: *const c_int);
+                  alpha: *const complex_double, a: *const complex_double, lda: *const c_int,
+                  b: *mut complex_double, ldb: *const c_int);
 }
