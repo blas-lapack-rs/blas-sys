@@ -18,6 +18,20 @@ extern crate libc;
 
 use libc::{c_uint, c_int, c_char, c_double, c_float, size_t};
 
+#[derive(Clone, Copy)]
+#[repr(C)]
+pub struct float_complex {
+    pub real: c_float,
+    pub imag: c_float,
+}
+
+#[derive(Clone, Copy)]
+#[repr(C)]
+pub struct double_complex {
+    pub real: c_double,
+    pub imag: c_double,
+}
+
 pub type openblas_complex_float = [c_float; 2];
 pub type openblas_complex_double = [c_double; 2];
 
@@ -213,4 +227,101 @@ extern "C" {
     pub fn cblas_dimatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: blasint, ccols: blasint, calpha: c_double, a: *mut c_double, clda: blasint, cldb: blasint) -> ();
     pub fn cblas_cimatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: blasint, ccols: blasint, calpha: *const c_float, a: *mut c_float, clda: blasint, cldb: blasint) -> ();
     pub fn cblas_zimatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: blasint, ccols: blasint, calpha: *const c_double, a: *mut c_double, clda: blasint, cldb: blasint) -> ();
+}
+
+// Level 1
+//
+// http://www.netlib.org/blas/#_level_1
+extern "C" {
+    // Single
+    pub fn srotg_(a: *mut c_float, b: *mut c_float, c: *mut c_float, s: *mut c_float);
+    pub fn srotmg_(d1: *mut c_float, d2: *mut c_float, x1: *mut c_float, y1: *const c_float,
+                   param: *mut c_float);
+    pub fn srot_(n: *const c_int, x: *mut c_float, incx: *const c_int, y: *mut c_float,
+                 incy: *const c_int, c: *const c_float, s: *const c_float);
+    pub fn srotm_(n: *const c_int, x: *mut c_float, incx: *const c_int, y: *mut c_float,
+                  incy: *const c_int, param: *const c_float);
+    pub fn sswap_(n: *const c_int, x: *mut c_float, incx: *const c_int, y: *mut c_float,
+                  incy: *const c_int);
+    pub fn sscal_(n: *const c_int, a: *const c_float, x: *mut c_float, incx: *const c_int);
+    pub fn scopy_(n: *const c_int, x: *const c_float, incx: *const c_int, y: *mut c_float,
+                  incy: *const c_int);
+    pub fn saxpy_(n: *const c_int, alpha: *const c_float, x: *const c_float, incx: *const c_int,
+                  y: *mut c_float, incy: *const c_int);
+    pub fn sdot_(n: *const c_int, x: *const c_float, incx: *const c_int, y: *const c_float,
+                 incy: *const c_int) -> c_float;
+    pub fn sdsdot_(n: *const c_int, sb: *const c_float, x: *const c_float, incx: *const c_int,
+                   y: *const c_float, incy: *const c_int) -> c_float;
+    pub fn snrm2_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_float;
+    pub fn scnrm2_(n: *const c_int, x: *const float_complex, incx: *const c_int) -> c_float;
+    pub fn sasum_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_float;
+    pub fn isamax_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_int;
+
+    // Double
+    pub fn drotg_(a: *mut c_double, b: *mut c_double, c: *mut c_double, s: *mut c_double);
+    pub fn drotmg_(d1: *mut c_double, d2: *mut c_double, x1: *mut c_double, y1: *const c_double,
+                   param: *mut c_double);
+    pub fn drot_(n: *const c_int, x: *mut c_double, incx: *const c_int, y: *mut c_double,
+                 incy: *const c_int, c: *const c_double, s: *const c_double);
+    pub fn drotm_(n: *const c_int, x: *mut c_double, incx: *const c_int, y: *mut c_double,
+                  incy: *const c_int, param: *const c_double);
+    pub fn dswap_(n: *const c_int, x: *mut c_double, incx: *const c_int, y: *mut c_double,
+                  incy: *const c_int);
+    pub fn dscal_(n: *const c_int, a: *const c_double, x: *mut c_double, incx: *const c_int);
+    pub fn dcopy_(n: *const c_int, x: *const c_double, incx: *const c_int, y: *mut c_double,
+                  incy: *const c_int);
+    pub fn daxpy_(n: *const c_int, alpha: *const c_double, x: *const c_double, incx: *const c_int,
+                  y: *mut c_double, incy: *const c_int);
+    pub fn ddot_(n: *const c_int, x: *const c_double, incx: *const c_int, y: *const c_double,
+                 incy: *const c_int) -> c_double;
+    pub fn dsdot_(n: *const c_int, x: *const c_float, incx: *const c_int, y: *const c_float,
+                  incy: *const c_int) -> c_double;
+    pub fn dnrm2_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_double;
+    pub fn dznrm2_(n: *const c_int, x: *const double_complex, incx: *const c_int) -> c_double;
+    pub fn dasum_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_double;
+    pub fn idamax_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_int;
+
+    // Complex
+    pub fn crotg_(a: *mut float_complex, b: *const float_complex, c: *mut c_float,
+                  s: *mut float_complex);
+    pub fn csrot_(n: *const c_int, x: *mut float_complex, incx: *const c_int,
+                  y: *mut float_complex, incy: *const c_int, c: *const c_float, s: *const c_float);
+    pub fn cswap_(n: *const c_int, x: *mut float_complex, incx: *const c_int,
+                  y: *mut float_complex, incy: *const c_int);
+    pub fn cscal_(n: *const c_int, a: *const float_complex, x: *mut float_complex,
+                  incx: *const c_int);
+    pub fn csscal_(n: *const c_int, a: *const c_float, x: *mut float_complex, incx: *const c_int);
+    pub fn ccopy_(n: *const c_int, x: *const float_complex, incx: *const c_int,
+                  y: *mut float_complex, incy: *const c_int);
+    pub fn caxpy_(n: *const c_int, alpha: *const float_complex, x: *const float_complex,
+                  incx: *const c_int, y: *mut float_complex, incy: *const c_int);
+    pub fn cdotu_(pres: *mut float_complex, n: *const c_int, x: *const float_complex,
+                  incx: *const c_int, y: *const float_complex, incy: *const c_int);
+    pub fn cdotc_(pres: *mut float_complex, n: *const c_int, x: *const float_complex,
+                  incx: *const c_int, y: *const float_complex, incy: *const c_int);
+    pub fn scasum_(n: *const c_int, x: *const float_complex, incx: *const c_int) -> c_float;
+    pub fn icamax_(n: *const c_int, x: *const float_complex, incx: *const c_int) -> c_int;
+
+    // Double complex
+    pub fn zrotg_(a: *mut double_complex, b: *const double_complex, c: *mut c_double,
+                  s: *mut double_complex);
+    pub fn zdrot_(n: *const c_int, x: *mut double_complex, incx: *const c_int,
+                  y: *mut double_complex, incy: *const c_int, c: *const c_double,
+                  s: *const c_double);
+    pub fn zswap_(n: *const c_int, x: *mut double_complex, incx: *const c_int,
+                  y: *mut double_complex, incy: *const c_int);
+    pub fn zscal_(n: *const c_int, a: *const double_complex, x: *mut double_complex,
+                  incx: *const c_int);
+    pub fn zdscal_(n: *const c_int, a: *const c_double, x: *mut double_complex,
+                   incx: *const c_int);
+    pub fn zcopy_(n: *const c_int, x: *const double_complex, incx: *const c_int,
+                  y: *mut double_complex, incy: *const c_int);
+    pub fn zaxpy_(n: *const c_int, alpha: *const double_complex, x: *const double_complex,
+                  incx: *const c_int, y: *mut double_complex, incy: *const c_int);
+    pub fn zdotu_(pres: *mut double_complex, n: *const c_int, x: *const double_complex,
+                  incx: *const c_int, y: *const double_complex, incy: *const c_int);
+    pub fn zdotc_(pres: *mut double_complex, n: *const c_int, x: *const double_complex,
+                  incx: *const c_int, y: *const double_complex, incy: *const c_int);
+    pub fn dzasum_(n: *const c_int, x: *const double_complex, incx: *const c_int) -> c_double;
+    pub fn izamax_(n: *const c_int, x: *const double_complex, incx: *const c_int) -> c_int;
 }
