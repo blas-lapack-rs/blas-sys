@@ -21,15 +21,15 @@ use libc::{c_uint, c_int, c_char, c_double, c_float, size_t};
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct complex_float {
-    pub real: c_float,
-    pub imag: c_float,
+    pub re: c_float,
+    pub im: c_float,
 }
 
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct complex_double {
-    pub real: c_double,
-    pub imag: c_double,
+    pub re: c_double,
+    pub im: c_double,
 }
 
 pub type CBLAS_ORDER = c_uint;
