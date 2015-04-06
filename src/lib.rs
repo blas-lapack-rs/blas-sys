@@ -215,14 +215,14 @@ extern "C" {
     pub fn cblas_daxpby(n: int, alpha: c_double, x: *const c_double, incx: int, beta: c_double, y: *mut c_double, incy: int);
     pub fn cblas_caxpby(n: int, alpha: *const c_float, x: *const c_float, incx: int, beta: *const c_float, y: *mut c_float, incy: int);
     pub fn cblas_zaxpby(n: int, alpha: *const c_double, x: *const c_double, incx: int, beta: *const c_double, y: *mut c_double, incy: int);
-    pub fn cblas_somatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_float, a: *const c_float, clda: int, b: *mut c_float, cldb: int);
-    pub fn cblas_domatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_double, a: *const c_double, clda: int, b: *mut c_double, cldb: int);
-    pub fn cblas_comatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_float, a: *const c_float, clda: int, b: *mut c_float, cldb: int);
-    pub fn cblas_zomatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_double, a: *const c_double, clda: int, b: *mut c_double, cldb: int);
-    pub fn cblas_simatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_float, a: *mut c_float, clda: int, cldb: int);
-    pub fn cblas_dimatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_double, a: *mut c_double, clda: int, cldb: int);
-    pub fn cblas_cimatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_float, a: *mut c_float, clda: int, cldb: int);
-    pub fn cblas_zimatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_double, a: *mut c_double, clda: int, cldb: int);
+    pub fn cblas_somatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_float, a: *const c_float, clda: int, b: *mut c_float, cldb: int);
+    pub fn cblas_domatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_double, a: *const c_double, clda: int, b: *mut c_double, cldb: int);
+    pub fn cblas_comatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_float, a: *const c_float, clda: int, b: *mut c_float, cldb: int);
+    pub fn cblas_zomatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_double, a: *const c_double, clda: int, b: *mut c_double, cldb: int);
+    pub fn cblas_simatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_float, a: *mut c_float, clda: int, cldb: int);
+    pub fn cblas_dimatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: c_double, a: *mut c_double, clda: int, cldb: int);
+    pub fn cblas_cimatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_float, a: *mut c_float, clda: int, cldb: int);
+    pub fn cblas_zimatcopy(corder: CBLAS_ORDER, ctrans: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_double, a: *mut c_double, clda: int, cldb: int);
 }
 
 // Fortran interface. Level 1
