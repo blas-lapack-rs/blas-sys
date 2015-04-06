@@ -89,6 +89,7 @@ extern "C" {
 
     // Complex
     pub fn cblas_crotg(a: *mut c_float, b: *mut c_float, c: *mut c_float, s: *mut c_float);
+    pub fn cblas_crot(n: int, x: *mut c_float, incx: int, y: *mut c_float, incy: int, c: c_float, s: *const c_float);
     pub fn cblas_csrot(n: int, x: *mut c_float, incx: int, y: *mut c_float, incy: int, c: c_float, s: c_float);
     pub fn cblas_cswap(n: int, x: *mut c_float, incx: int, y: *mut c_float, incy: int);
     pub fn cblas_cscal(n: int, alpha: *const c_float, x: *mut c_float, incx: int);
@@ -100,8 +101,12 @@ extern "C" {
     pub fn cblas_scasum(n: int, x: *const c_float, incx: int) -> c_float;
     pub fn cblas_icamax(n: int, x: *const c_float, incx: int) -> CBLAS_INDEX;
 
+    pub fn cblas_cdotu_sub(n: int, x: *const c_float, incx: int, y: *const c_float, incy: int, ret: *mut complex_float);
+    pub fn cblas_cdotc_sub(n: int, x: *const c_float, incx: int, y: *const c_float, incy: int, ret: *mut complex_float);
+
     // Double complex
     pub fn cblas_zrotg(a: *mut c_double, b: *mut c_double, c: *mut c_double, s: *mut c_double);
+    pub fn cblas_zrot(n: int, x: *mut c_double, incx: int, y: *mut c_double, incy: int, c: c_double, s: *const c_double);
     pub fn cblas_zdrot(n: int, x: *mut c_double, incx: int, y: *mut c_double, incy: int, c: c_double, s: c_double);
     pub fn cblas_zswap(n: int, x: *mut c_double, incx: int, y: *mut c_double, incy: int);
     pub fn cblas_zscal(n: int, alpha: *const c_double, x: *mut c_double, incx: int);
@@ -112,6 +117,9 @@ extern "C" {
     pub fn cblas_zdotc(n: int, x: *const c_double, incx: int, y: *const c_double, incy: int) -> complex_double;
     pub fn cblas_dzasum(n: int, x: *const c_double, incx: int) -> c_double;
     pub fn cblas_izamax(n: int, x: *const c_double, incx: int) -> CBLAS_INDEX;
+
+    pub fn cblas_zdotu_sub(n: int, x: *const c_double, incx: int, y: *const c_double, incy: int, ret: *mut complex_double);
+    pub fn cblas_zdotc_sub(n: int, x: *const c_double, incx: int, y: *const c_double, incy: int, ret: *mut complex_double);
 }
 
 // C interface. Level 2
@@ -236,19 +244,13 @@ extern "C" {
     pub fn cblas_ztrsm(order: CBLAS_ORDER, side: CBLAS_SIDE, uplo: CBLAS_UPLO, transa: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, m: int, n: int, alpha: *const c_double, a: *const c_double, lda: int, b: *mut c_double, ldb: int);
 }
 
-// C interface. Unclassified
+// C interface. Other
 extern "C" {
     pub fn cblas_xerbla(p: int, rout: *mut c_char, form: *mut c_char, ...);
+}
 
-    pub fn cblas_crot(n: int, x: *mut c_float, incx: int, y: *mut c_float, incy: int, c: c_float, s: *const c_float);
-    pub fn cblas_zrot(n: int, x: *mut c_double, incx: int, y: *mut c_double, incy: int, c: c_double, s: *const c_double);
-
-    pub fn cblas_cdotu_sub(n: int, x: *const c_float, incx: int, y: *const c_float, incy: int, ret: *mut complex_float);
-    pub fn cblas_zdotu_sub(n: int, x: *const c_double, incx: int, y: *const c_double, incy: int, ret: *mut complex_double);
-
-    pub fn cblas_cdotc_sub(n: int, x: *const c_float, incx: int, y: *const c_float, incy: int, ret: *mut complex_float);
-    pub fn cblas_zdotc_sub(n: int, x: *const c_double, incx: int, y: *const c_double, incy: int, ret: *mut complex_double);
-
+// C interface. OpenBLAS specific. Remove?
+extern "C" {
     pub fn cblas_saxpby(n: int, alpha: c_float, x: *const c_float, incx: int, beta: c_float, y: *mut c_float, incy: int);
     pub fn cblas_daxpby(n: int, alpha: c_double, x: *const c_double, incx: int, beta: c_double, y: *mut c_double, incy: int);
     pub fn cblas_caxpby(n: int, alpha: *const c_float, x: *const c_float, incx: int, beta: *const c_float, y: *mut c_float, incy: int);
