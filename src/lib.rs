@@ -1,9 +1,5 @@
 //! Bindings to the [Basic Linear Algebra Subprograms][1].
 //!
-//! This crate binds CBLAS, and the headers aren't particularly good. In some functions, `*mut
-//! c_double` is treated as a pointer to a double, and in others as a pointer to a `double
-//! _Complex`. Some functions may also be missing.
-//!
 //! [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
 #![allow(bad_style)]
@@ -55,6 +51,10 @@ pub type CBLAS_SIDE = c_uint;
 pub const CblasLeft: c_uint = 141;
 pub const CblasRight: c_uint = 142;
 
+// C interface
+//
+// In some functions, `*mut c_double` is treated as a pointer to a double, and in others as a
+// pointer to a `double _Complex`. Some functions may also be missing.
 extern "C" {
     pub fn cblas_sdsdot(n: int, alpha: c_float, x: *const c_float, incx: int, y: *const c_float, incy: int) -> c_float;
     pub fn cblas_dsdot(n: int, x: *const c_float, incx: int, y: *const c_float, incy: int) -> c_double;
@@ -225,7 +225,7 @@ extern "C" {
     pub fn cblas_zimatcopy(CORDER: CBLAS_ORDER, CTRANS: CBLAS_TRANSPOSE, crows: int, ccols: int, calpha: *const c_double, a: *mut c_double, clda: int, cldb: int);
 }
 
-// Level 1
+// Fortran interface. Level 1
 //
 // http://www.netlib.org/blas/#_level_1
 extern "C" {
@@ -322,7 +322,7 @@ extern "C" {
     pub fn izamax_(n: *const c_int, x: *const complex_double, incx: *const c_int) -> c_int;
 }
 
-// Level 2
+// Fortran interface. Level 2
 //
 // http://www.netlib.org/blas/#_level_2
 extern "C" {
@@ -524,7 +524,7 @@ extern "C" {
                   incy: *const c_int, ap: *mut complex_double);
 }
 
-// Level 3
+// Fortran interface. Level 3
 //
 // http://www.netlib.org/blas/#_level_3
 extern "C" {
