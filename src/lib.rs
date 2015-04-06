@@ -24,25 +24,14 @@ pub type int = c_int;
 #[cfg(feature = "netlib")]
 pub type int = c_int;
 
+pub type complex_float = [c_float; 2];
+pub type complex_double = [c_double; 2];
+
 #[cfg(feature = "openblas")]
 pub type CBLAS_INDEX = size_t;
 
 #[cfg(feature = "netlib")]
 pub type CBLAS_INDEX = c_int;
-
-#[derive(Clone, Copy)]
-#[repr(C)]
-pub struct complex_float {
-    pub re: c_float,
-    pub im: c_float,
-}
-
-#[derive(Clone, Copy)]
-#[repr(C)]
-pub struct complex_double {
-    pub re: c_double,
-    pub im: c_double,
-}
 
 pub type CBLAS_ORDER = c_uint;
 pub const CblasRowMajor: c_uint = 101;
