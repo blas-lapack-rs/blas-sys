@@ -12,7 +12,7 @@ extern crate openblas_blas_provider as raw;
 #[cfg(feature = "netlib")]
 extern crate netlib_blas_provider as raw;
 
-use libc::{c_uint, c_int, c_char, c_double, c_float, size_t};
+use libc::{c_uint, c_int, c_char, c_double, c_float};
 
 #[cfg(feature = "openblas")]
 pub type int = c_int;
@@ -24,7 +24,7 @@ pub type complex_float = [c_float; 2];
 pub type complex_double = [c_double; 2];
 
 #[cfg(feature = "openblas")]
-pub type CBLAS_INDEX = size_t;
+pub type CBLAS_INDEX = libc::size_t;
 
 #[cfg(feature = "netlib")]
 pub type CBLAS_INDEX = c_int;
