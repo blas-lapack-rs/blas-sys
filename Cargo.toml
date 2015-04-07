@@ -1,6 +1,6 @@
 [package]
 name = "libblas-sys"
-version = "0.0.20"
+version = "0.0.21"
 authors = ["Corey Richardson <corey@octayn.net>", "Ivan Ukhov <ivan.ukhov@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/stainless-steel/libblas-sys"
@@ -13,13 +13,13 @@ libc = "*"
 
 [features]
 default = ["openblas"]
-openblas = ["openblas-blas-provider"]
-netlib = ["netlib-blas-provider"]
+openblas = ["openblas-provider"]
+netlib = ["netlib-provider"]
 
-[dependencies.openblas-blas-provider]
+[dependencies.openblas-provider]
 version = "*"
 optional = true
 
-[dependencies.netlib-blas-provider]
+[dependencies.netlib-provider]
 version = "*"
 optional = true
