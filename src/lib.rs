@@ -179,9 +179,9 @@ extern "C" {
     pub fn dsbmv_(uplo: *const c_char, n: *const c_int, k: *const c_int, alpha: *const c_double,
                   a: *const c_double, lda: *const c_int, x: *const c_double, incx: *const c_int,
                   beta: *const c_double, y: *mut c_double, incy: *const c_int);
-    pub fn dspmv_(uplo: *const c_char, n: *const c_int, alpha: *const c_double, ap: *const c_double,
-                  x: *const c_double, incx: *const c_int, beta: *const c_double,
-                  y: *mut c_double, incy: *const c_int);
+    pub fn dspmv_(uplo: *const c_char, n: *const c_int, alpha: *const c_double,
+                  ap: *const c_double, x: *const c_double, incx: *const c_int,
+                  beta: *const c_double, y: *mut c_double, incy: *const c_int);
     pub fn dtrmv_(uplo: *const c_char, transa: *const c_char, diag: *const c_char, n: *const c_int,
                   a: *const c_double, lda: *const c_int, b: *mut c_double, incx: *const c_int);
     pub fn dtbmv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
@@ -332,8 +332,8 @@ extern "C" {
                   alpha: *const c_float, a: *const c_float, lda: *const c_int, b: *const c_float,
                   ldb: *const c_int, beta: *const c_float, c: *mut c_float, ldc: *const c_int);
     pub fn ssyrk_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
-                  alpha: *const c_float, a: *const c_float, lda: *const c_int, beta: *const c_float,
-                  c: *mut c_float, ldc: *const c_int);
+                  alpha: *const c_float, a: *const c_float, lda: *const c_int,
+                  beta: *const c_float, c: *mut c_float, ldc: *const c_int);
     pub fn ssyr2k_(uplo: *const c_char, trans: *const c_char, n: *const c_int, k: *const c_int,
                    alpha: *const c_float, a: *const c_float, lda: *const c_int, b: *const c_float,
                    ldb: *const c_int, beta: *const c_float, c: *mut c_float, ldc: *const c_int);
