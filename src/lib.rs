@@ -18,7 +18,7 @@ pub type complex_float = [c_float; 2];
 #[allow(bad_style)]
 pub type complex_double = [c_double; 2];
 
-// Fortran interface. Level 1
+// Level 1
 //
 // http://www.netlib.org/blas/#_level_1
 extern "C" {
@@ -115,7 +115,7 @@ extern "C" {
     pub fn izamax_(n: *const c_int, x: *const complex_double, incx: *const c_int) -> c_int;
 }
 
-// Fortran interface. Level 2
+// Level 2
 //
 // http://www.netlib.org/blas/#_level_2
 extern "C" {
@@ -317,7 +317,7 @@ extern "C" {
                   incy: *const c_int, ap: *mut complex_double);
 }
 
-// Fortran interface. Level 3
+// Level 3
 //
 // http://www.netlib.org/blas/#_level_3
 extern "C" {
