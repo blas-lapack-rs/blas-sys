@@ -1,9 +1,9 @@
-# libblas-sys [![Build Status][status-svg]][status-url]
+# blas-sys [![Build Status][status-svg]][status-url]
 
 The package provides bindings to the [Basic Linear Algebra Subprograms][1]. The
 bindings are directly to Fortran routines, that is, without any overhead.
 
-## [Documentation][docs]
+## [Documentation][2]
 
 ## Contributing
 
@@ -12,7 +12,7 @@ bindings are directly to Fortran routines, that is, without any overhead.
 3. Open a pull request.
 
 [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
+[2]: https://stainless-steel.github.io/blas-sys
 
-[status-svg]: https://travis-ci.org/stainless-steel/libblas-sys.svg?branch=master
-[status-url]: https://travis-ci.org/stainless-steel/libblas-sys
-[docs]: https://stainless-steel.github.io/libblas-sys
+[status-svg]: https://travis-ci.org/stainless-steel/blas-sys.svg?branch=master
+[status-url]: https://travis-ci.org/stainless-steel/blas-sys
