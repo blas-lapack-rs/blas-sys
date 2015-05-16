@@ -1,4 +1,4 @@
-extern crate libblas_sys as raw;
+extern crate blas_sys as raw;
 
 #[test]
 fn link() {
