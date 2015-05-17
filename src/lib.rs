@@ -1,7 +1,5 @@
 //! Bindings to the [Basic Linear Algebra Subprograms][1].
 //!
-//! The bindings are directly to Fortran routines, that is, without any overhead.
-//!
 //! [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
 extern crate libc;
