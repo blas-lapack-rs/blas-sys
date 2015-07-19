@@ -4,19 +4,19 @@
 
 extern crate libc;
 
-#[cfg(feature = "openblas")]
-extern crate openblas_provider as raw;
-
 #[cfg(feature = "netlib")]
 extern crate netlib_provider as raw;
 
-use libc::{c_int, c_char, c_double, c_float};
+#[cfg(feature = "openblas")]
+extern crate openblas_provider as raw;
 
-#[allow(bad_style)]
-pub type complex_float = [c_float; 2];
+use libc::{c_char, c_double, c_float, c_int};
 
 #[allow(bad_style)]
 pub type complex_double = [c_double; 2];
+
+#[allow(bad_style)]
+pub type complex_float = [c_float; 2];
 
 // Level 1
 //
@@ -285,9 +285,8 @@ extern "C" {
                   a: *const complex_double, lda: *const c_int, b: *mut complex_double,
                   incx: *const c_int);
     pub fn ztbmv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
-                  k: *const c_int,
-                  a: *const complex_double, lda: *const c_int, x: *mut complex_double,
-                  incx: *const c_int);
+                  k: *const c_int, a: *const complex_double, lda: *const c_int,
+                  x: *mut complex_double, incx: *const c_int);
     pub fn ztpmv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
                   ap: *const complex_double, x: *mut complex_double, incx: *const c_int);
     pub fn ztrsv_(uplo: *const c_char, trans: *const c_char, diag: *const c_char, n: *const c_int,
@@ -324,8 +323,8 @@ extern "C" {
     // Single
     pub fn sgemm_(transa: *const c_char, transb: *const c_char, m: *const c_int, n: *const c_int,
                   k: *const c_int, alpha: *const c_float, a: *const c_float, lda: *const c_int,
-                  b: *const c_float, ldb: *const c_int,
-                  beta: *const c_float, c: *mut c_float, ldc: *const c_int);
+                  b: *const c_float, ldb: *const c_int, beta: *const c_float, c: *mut c_float,
+                  ldc: *const c_int);
     pub fn ssymm_(side: *const c_char, uplo: *const c_char, m: *const c_int, n: *const c_int,
                   alpha: *const c_float, a: *const c_float, lda: *const c_int, b: *const c_float,
                   ldb: *const c_int, beta: *const c_float, c: *mut c_float, ldc: *const c_int);

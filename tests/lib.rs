@@ -1,8 +1,8 @@
-extern crate blas_sys as raw;
+extern crate blas_sys as ffi;
 
 #[test]
 fn link() {
-    let trans = b'N';
+    let trans = b'N' as i8;
     let m = 1;
     let n = 1;
     let alpha = 0.0;
@@ -15,8 +15,7 @@ fn link() {
     let incy = 1;
 
     unsafe {
-        raw::dgemv_(&trans as *const _ as *const _, &m as *const _, &n as *const _,
-                    &alpha as *const _, a.as_ptr(), &lda as *const _, x.as_ptr(),
-                    &incx as *const _, &beta as *const _, y.as_mut_ptr(), &incy as *const _);
+        ffi::dgemv_(&trans, &m, &n, &alpha, a.as_ptr(), &lda, x.as_ptr(), &incx, &beta,
+                    y.as_mut_ptr(), &incy);
     }
 }
