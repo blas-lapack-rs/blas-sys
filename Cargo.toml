@@ -1,6 +1,6 @@
 [package]
 name = "blas-sys"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Corey Richardson <corey@octayn.net>", "Ivan Ukhov <ivan.ukhov@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/stainless-steel/blas-sys"
@@ -17,9 +17,9 @@ openblas = ["openblas-provider"]
 netlib = ["netlib-provider"]
 
 [dependencies.openblas-provider]
-version = "*"
+version = "0.1"
 optional = true
 
 [dependencies.netlib-provider]
-version = "*"
+version = "0.1"
 optional = true
