@@ -1,8 +1,8 @@
-# blas-sys [![Build Status][status-svg]][status-url]
+# blas-sys [![Version][version-img]][version-url] [![Status][status-img]][status-url]
 
 The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 
-## [Documentation][2]
+## [Documentation][docs]
 
 ## Contributing
 
@@ -11,7 +11,9 @@ The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 3. Open a pull request.
 
 [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
-[2]: https://stainless-steel.github.io/blas-sys
 
-[status-svg]: https://travis-ci.org/stainless-steel/blas-sys.svg?branch=master
+[version-img]: http://stainless-steel.github.io/images/crates.svg
+[version-url]: https://crates.io/crates/blas-sys
+[status-img]: https://travis-ci.org/stainless-steel/blas-sys.svg?branch=master
 [status-url]: https://travis-ci.org/stainless-steel/blas-sys
+[docs]: https://stainless-steel.github.io/blas-sys
