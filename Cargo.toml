@@ -1,7 +1,11 @@
 [package]
 name = "blas-sys"
 version = "0.1.1"
-authors = ["Corey Richardson <corey@octayn.net>", "Ivan Ukhov <ivan.ukhov@gmail.com>"]
+authors = [
+  "Andrew Straw <strawman@astraw.com>",
+  "Corey Richardson <corey@octayn.net>",
+  "Ivan Ukhov <ivan.ukhov@gmail.com>",
+]
 license = "MIT"
 repository = "https://github.com/stainless-steel/blas-sys"
 homepage = "https://github.com/stainless-steel/blas-sys"
@@ -13,18 +17,19 @@ libc = "*"
 
 [features]
 default = ["openblas"]
-openblas = ["openblas-provider"]
-netlib = ["netlib-provider"]
-accelerate = ["accelerate-provider"]
 
-[dependencies.openblas-provider]
-version = "0.1"
+accelerate = ["accelerate-provider"]
+netlib = ["netlib-provider"]
+openblas = ["openblas-provider"]
+
+[dependencies.accelerate-provider]
+version = "0.1.1"
 optional = true
 
 [dependencies.netlib-provider]
 version = "0.1"
 optional = true
 
-[dependencies.accelerate-provider]
-version = "0.1.1"
+[dependencies.openblas-provider]
+version = "0.1"
 optional = true
