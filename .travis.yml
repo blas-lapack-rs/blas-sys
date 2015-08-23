@@ -1,6 +1,16 @@
 language: rust
 sudo: false
 
+os:
+  - linux
+  - osx
+
+script:
+  - cargo test --verbose
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+      cargo test --verbose --no-default-features --features accelerate;
+    fi
+
 addons:
   apt:
     packages:
