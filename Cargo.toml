@@ -15,6 +15,7 @@ libc = "*"
 default = ["openblas"]
 openblas = ["openblas-provider"]
 netlib = ["netlib-provider"]
+accelerate = ["accelerate-provider"]
 
 [dependencies.openblas-provider]
 version = "0.1"
@@ -22,4 +23,8 @@ optional = true
 
 [dependencies.netlib-provider]
 version = "0.1"
+optional = true
+
+[dependencies.accelerate-provider]
+version = "0.1.1"
 optional = true

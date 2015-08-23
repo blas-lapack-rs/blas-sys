@@ -10,6 +10,9 @@ extern crate netlib_provider as raw;
 #[cfg(feature = "openblas")]
 extern crate openblas_provider as raw;
 
+#[cfg(feature = "accelerate")]
+extern crate accelerate_provider as raw;
+
 use libc::{c_char, c_double, c_float, c_int};
 
 #[allow(bad_style)]
