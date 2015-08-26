@@ -1,16 +1,6 @@
 language: rust
 sudo: false
 
-os:
-  - linux
-  - osx
-
-script:
-  - cargo test --verbose
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-      cargo test --verbose --no-default-features --features accelerate;
-    fi
-
 addons:
   apt:
     packages:
@@ -21,7 +11,7 @@ after_success:
 
 env:
   global:
-    secure: YQg8W+5ZsiC+5VKQrDzrKvrt0D5sB7qT1Trf6AxgyVEjXCLhVBN98trys0/PicEqATTl9LUgW5K/N7fgkniuDavt6shPL2g/bAoxn+ZFMv8vIGGcv/6AYC8t78H1nar86k4rlA25lLjdx/BPsOd7sxJxeL76nOFA1warT6A4+XQ=
+    secure: vZkiTOKMtYP6/Acz2DtADr5MoKMH/pIiIKRPELLuDU6KIOOoMKDDXITV0sriXxcyY1yxIevUbdSsH1SK4wMzXzRq702RqF8+gRY2DdPtVWge4AojB7I8sS9WHK7EzIs14guE/4WuqisAMj24rRE67/+Q8UKDfM1lAdGZ6w/HocY=
 
 notifications:
   email: false
