@@ -12,7 +12,7 @@ The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 
 [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
-[version-img]: http://stainless-steel.github.io/images/crates.svg
+[version-img]: https://img.shields.io/crates/v/blas-sys.svg
 [version-url]: https://crates.io/crates/blas-sys
 [status-img]: https://travis-ci.org/stainless-steel/blas-sys.svg?branch=master
 [status-url]: https://travis-ci.org/stainless-steel/blas-sys
