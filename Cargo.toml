@@ -12,15 +12,15 @@ homepage = "https://github.com/stainless-steel/blas-sys"
 documentation = "https://stainless-steel.github.io/blas-sys"
 description = "The package provides bindings to the Basic Linear Algebra Subprograms."
 
-[dependencies]
-libc = "0.2"
-
 [features]
 default = ["openblas"]
 
 accelerate = ["accelerate-provider"]
 netlib = ["netlib-provider"]
 openblas = ["openblas-provider"]
+
+[dependencies]
+libc = "0.2"
 
 [dependencies.accelerate-provider]
 version = "0.1"
