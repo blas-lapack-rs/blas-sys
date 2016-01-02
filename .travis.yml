@@ -11,11 +11,12 @@ addons:
       - gfortran
 
 after_success:
-  - curl https://stainless-steel.github.io/travis/after_success.sh | bash
+  - if [ "$TRAVIS_RUST_VERSION" == "nightly" ]; then
+      curl https://stainless-steel.github.io/travis/update_documentation.sh | bash;
+    fi
 
 env:
   global:
-    - RUSTDOC_VERSION=nightly
     - secure: vZkiTOKMtYP6/Acz2DtADr5MoKMH/pIiIKRPELLuDU6KIOOoMKDDXITV0sriXxcyY1yxIevUbdSsH1SK4wMzXzRq702RqF8+gRY2DdPtVWge4AojB7I8sS9WHK7EzIs14guE/4WuqisAMj24rRE67/+Q8UKDfM1lAdGZ6w/HocY=
 
 notifications:
