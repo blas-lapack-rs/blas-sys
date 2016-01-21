@@ -13,6 +13,8 @@ extern crate openblas_provider as raw;
 #[cfg(feature = "accelerate")]
 extern crate accelerate_provider as raw;
 
+mod c;
 mod fortran;
 
+pub use c::*;
 pub use fortran::*;
