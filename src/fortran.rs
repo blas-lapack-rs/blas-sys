@@ -1,10 +1,6 @@
 use libc::{c_char, c_double, c_float, c_int};
 
-#[allow(bad_style)]
-pub type complex_double = [c_double; 2];
-
-#[allow(bad_style)]
-pub type complex_float = [c_float; 2];
+use {complex_double, complex_float};
 
 // Level 1
 //
