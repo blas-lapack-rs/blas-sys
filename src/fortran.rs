@@ -245,9 +245,9 @@ extern "C" {
     pub fn chpr2_(uplo: *const c_char, n: *const c_int, alpha: *const complex_float,
                   x: *const complex_float, incx: *const c_int, y: *const complex_float,
                   incy: *const c_int, ap: *mut complex_float);
-    pub fn cher2_(uplo: *const c_char, n: *const c_int, alpha: *const complex_float, x: *const
-                  complex_float, incx: *const c_int, y: *const complex_float, incy: *const c_int,
-                  a: *mut complex_float, lda: *const c_int);
+    pub fn cher2_(uplo: *const c_char, n: *const c_int, alpha: *const complex_float,
+                  x: *const complex_float, incx: *const c_int, y: *const complex_float,
+                  incy: *const c_int, a: *mut complex_float, lda: *const c_int);
 
     // Double complex
     pub fn zgemv_(trans: *const c_char, m: *const c_int, n: *const c_int,
