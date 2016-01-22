@@ -14,10 +14,10 @@ extern crate openblas_provider as raw;
 extern crate accelerate_provider as raw;
 
 #[allow(bad_style)]
-pub type complex_double = [libc::c_double; 2];
+pub type c_double_complex = [libc::c_double; 2];
 
 #[allow(bad_style)]
-pub type complex_float = [libc::c_float; 2];
+pub type c_float_complex = [libc::c_float; 2];
 
 mod c;
 mod fortran;
