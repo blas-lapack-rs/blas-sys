@@ -40,7 +40,7 @@ pub use self::CblasSide::*;
 
 pub type CblasOrder = CblasLayout;
 
-// Prototypes for level 1 BLAS functions (complex are recast as routines)
+// Level 1 (functions, but complex are recast as routines)
 extern "C" {
     pub fn cblas_dcabs1(z: *const c_void) -> c_double;
     pub fn cblas_scabs1(c: *const c_void) -> c_float;
@@ -53,10 +53,8 @@ extern "C" {
                       y: *const c_float, incy: c_int) -> c_float;
     pub fn cblas_ddot(n: c_int, x: *const c_double, incx: c_int,
                       y: *const c_double, incy: c_int) -> c_double;
-}
 
-// Functions having prefixes Z and C only
-extern "C" {
+    // Prefixes Z and C only
     pub fn cblas_cdotu_sub(n: c_int, x: *const c_void, incx: c_int,
                            y: *const c_void, incy: c_int, dotu: *mut c_void);
     pub fn cblas_cdotc_sub(n: c_int, x: *const c_void, incx: c_int,
@@ -66,10 +64,8 @@ extern "C" {
                            y: *const c_void, incy: c_int, dotu: *mut c_void);
     pub fn cblas_zdotc_sub(n: c_int, x: *const c_void, incx: c_int,
                            y: *const c_void, incy: c_int, dotc: *mut c_void);
-}
 
-// Functions having prefixes S D SC DZ
-extern "C" {
+    // Prefixes S, D, SC, and DZ
     pub fn cblas_snrm2(n: c_int, x: *const c_float, incx: c_int) -> c_float;
     pub fn cblas_sasum(n: c_int, x: *const c_float, incx: c_int) -> c_float;
 
@@ -81,20 +77,17 @@ extern "C" {
 
     pub fn cblas_dznrm2(n: c_int, x: *const c_void, incx: c_int) -> c_double;
     pub fn cblas_dzasum(n: c_int, x: *const c_void, incx: c_int) -> c_double;
-}
 
-// Functions having standard 4 prefixes (S D C Z)
-extern "C" {
+    // Standard prefixes (S, D, C, and Z)
     pub fn cblas_isamax(n: c_int, x: *const c_float, incx: c_int) -> CblasIndex;
     pub fn cblas_idamax(n: c_int, x: *const c_double, incx: c_int) -> CblasIndex;
     pub fn cblas_icamax(n: c_int, x: *const c_void, incx: c_int) -> CblasIndex;
     pub fn cblas_izamax(n: c_int, x: *const c_void, incx: c_int) -> CblasIndex;
 }
 
-// Prototypes for level 1 BLAS routines
-//
-// Routines with standard 4 prefixes (s, d, c, z)
+// Level 1 (routines)
 extern "C" {
+    // Standard prefixes (S, D, C, and Z)
     pub fn cblas_sswap(n: c_int, x: *mut c_float, incx: c_int,
                        y: *mut c_float, incy: c_int);
     pub fn cblas_scopy(n: c_int, x: *const c_float, incx: c_int,
@@ -122,10 +115,8 @@ extern "C" {
                        y: *mut c_void, incy: c_int);
     pub fn cblas_zaxpy(n: c_int, alpha: *const c_void, x: *const c_void,
                        incx: c_int, y: *mut c_void, incy: c_int);
-}
 
-// Routines with S and D prefix only
-extern "C" {
+    // Prefixes S and D only
     pub fn cblas_srotg(a: *mut c_float, b: *mut c_float, c: *mut c_float, s: *mut c_float);
     pub fn cblas_srotmg(d1: *mut c_float, d2: *mut c_float, b1: *mut c_float, b2: c_float, p: *mut c_float);
     pub fn cblas_srot(n: c_int, x: *mut c_float, incx: c_int,
@@ -139,10 +130,8 @@ extern "C" {
                       y: *mut c_double, incy: c_int, c: c_double, s: c_double);
     pub fn cblas_drotm(n: c_int, x: *mut c_double, incx: c_int,
                       y: *mut c_double, incy: c_int, p: *const c_double);
-}
 
-// Routines with S D C Z CS and ZD prefixes
-extern "C" {
+    // Prefixes S, D, C, Z, CS, and ZD
     pub fn cblas_sscal(n: c_int, alpha: c_float, x: *mut c_float, incx: c_int);
     pub fn cblas_dscal(n: c_int, alpha: c_double, x: *mut c_double, incx: c_int);
     pub fn cblas_cscal(n: c_int, alpha: *const c_void, x: *mut c_void, incx: c_int);
@@ -151,10 +140,9 @@ extern "C" {
     pub fn cblas_zdscal(n: c_int, alpha: c_double, x: *mut c_void, incx: c_int);
 }
 
-// Prototypes for level 2 BLAS
-//
-// Routines with standard 4 prefixes (S, D, C, Z)
+// Level 2
 extern "C" {
+    // Standard prefixes (S, D, C, and Z)
     pub fn cblas_sgemv(layout: CblasLayout,
                        transa: CblasTranspose, m: c_int, n: c_int,
                        alpha: c_float, a: *const c_float, lda: c_int,
@@ -286,10 +274,8 @@ extern "C" {
     pub fn cblas_ztpsv(layout: CblasLayout, uplo: CblasUplo,
                        transa: CblasTranspose, diag: CblasDiag,
                        n: c_int, ap: *const c_void, x: *mut c_void, incx: c_int);
-}
 
-// Routines with S and D prefixes only
-extern "C" {
+    // Prefixes S and D only
     pub fn cblas_ssymv(layout: CblasLayout, uplo: CblasUplo,
                        n: c_int, alpha: c_float, a: *const c_float,
                        lda: c_int, x: *const c_float, incx: c_int,
@@ -347,10 +333,8 @@ extern "C" {
     pub fn cblas_dspr2(layout: CblasLayout, uplo: CblasUplo,
                        n: c_int, alpha: c_double, x: *const c_double,
                        incx: c_int, y: *const c_double, incy: c_int, a: *mut c_double);
-}
 
-// Routines with C and Z prefixes only
-extern "C" {
+    // Prefixes C and Z only
     pub fn cblas_chemv(layout: CblasLayout, uplo: CblasUplo,
                        n: c_int, alpha: *const c_void, a: *const c_void,
                        lda: c_int, x: *const c_void, incx: c_int,
@@ -414,10 +398,9 @@ extern "C" {
                        y: *const c_void, incy: c_int, ap: *mut c_void);
 }
 
-// Prototypes for level 3 BLAS
-//
-// Routines with standard 4 prefixes (S, D, C, Z)
+// Level 3
 extern "C" {
+    // Standard prefixes (S, D, C, and Z)
     pub fn cblas_sgemm(layout: CblasLayout, transa: CblasTranspose,
                        transb: CblasTranspose, m: c_int, n: c_int,
                        k: c_int, alpha: c_float, a: *const c_float,
@@ -537,10 +520,8 @@ extern "C" {
                        diag: CblasDiag, m: c_int, n: c_int,
                        alpha: *const c_void, a: *const c_void, lda: c_int,
                        b: *mut c_void, ldb: c_int);
-}
 
-// Routines with prefixes C and Z only
-extern "C" {
+    // Prefixes C and Z only
     pub fn cblas_chemm(layout: CblasLayout, side: CblasSide,
                        uplo: CblasUplo, m: c_int, n: c_int,
                        alpha: *const c_void, a: *const c_void, lda: c_int,
