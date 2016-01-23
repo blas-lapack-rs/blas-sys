@@ -4,11 +4,11 @@ The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 
 ## [Documentation][doc]
 
-## Contributing
+## Contribution
 
-Contribution is very much appreciated. Fork the project, commit your changes,
-and open a pull request! Note that any contribution will be licensed according
-to the terms given in [LICENSE.md](LICENSE.md).
+Your participation and contribution are highly appreciated. Do not hesitate to
+file an issue or open a pull request. Note that any contribution will be
+licensed according to the terms given in [LICENSE.md](LICENSE.md).
 
 [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
