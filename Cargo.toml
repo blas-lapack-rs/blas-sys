@@ -23,7 +23,7 @@ openblas = ["openblas-provider"]
 libc = "0.2"
 
 [dependencies.accelerate-provider]
-version = "0.1"
+version = "0.2"
 optional = true
 
 [dependencies.netlib-provider]
