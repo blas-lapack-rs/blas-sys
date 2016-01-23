@@ -2,13 +2,13 @@
 
 The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 
-## [Documentation][docs]
+## [Documentation][doc]
 
 ## Contributing
 
-1. Fork the project.
-2. Implement your idea.
-3. Open a pull request.
+Contribution is very much appreciated. Fork the project, commit your changes,
+and open a pull request! Note that any contribution will be licensed according
+to the terms given in [LICENSE.md](LICENSE.md).
 
 [1]: http://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
 
@@ -16,4 +16,4 @@ The package provides bindings to the [Basic Linear Algebra Subprograms][1].
 [version-url]: https://crates.io/crates/blas-sys
 [status-img]: https://travis-ci.org/stainless-steel/blas-sys.svg?branch=master
 [status-url]: https://travis-ci.org/stainless-steel/blas-sys
-[docs]: https://stainless-steel.github.io/blas-sys
+[doc]: https://stainless-steel.github.io/blas-sys
