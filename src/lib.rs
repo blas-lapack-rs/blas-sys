@@ -4,14 +4,14 @@
 
 extern crate libc;
 
+#[cfg(feature = "accelerate")]
+extern crate accelerate_provider as raw;
+
 #[cfg(feature = "netlib")]
 extern crate netlib_provider as raw;
 
 #[cfg(feature = "openblas")]
 extern crate openblas_provider as raw;
-
-#[cfg(feature = "accelerate")]
-extern crate accelerate_provider as raw;
 
 #[allow(bad_style)]
 pub type c_double_complex = [libc::c_double; 2];
