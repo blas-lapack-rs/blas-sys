@@ -1,16 +1,16 @@
 [package]
 name = "blas-sys"
-version = "0.2.1"
+version = "0.3.0"
+license = "MIT"
 authors = [
   "Andrew Straw <strawman@astraw.com>",
   "Corey Richardson <corey@octayn.net>",
   "Ivan Ukhov <ivan.ukhov@gmail.com>",
 ]
-license = "MIT"
-repository = "https://github.com/stainless-steel/blas-sys"
-homepage = "https://github.com/stainless-steel/blas-sys"
-documentation = "https://stainless-steel.github.io/blas-sys"
 description = "The package provides bindings to the Basic Linear Algebra Subprograms."
+documentation = "https://stainless-steel.github.io/blas-sys"
+homepage = "https://github.com/stainless-steel/blas-sys"
+repository = "https://github.com/stainless-steel/blas-sys"
 
 [features]
 default = ["openblas"]
