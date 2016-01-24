@@ -1,3 +1,5 @@
+//! The C bindings (CBLAS).
+
 use libc::{c_char, c_double, c_float, c_int};
 
 use {c_double_complex, c_float_complex};

@@ -1,7 +1,9 @@
-extern crate blas_sys as ffi;
+extern crate blas_sys;
 
 #[test]
 fn link_c() {
+    use blas_sys::c as ffi;
+
     let layout = ffi::CblasColMajor;
     let transa = ffi::CblasNoTrans;
     let m = 1;
@@ -23,6 +25,8 @@ fn link_c() {
 
 #[test]
 fn link_fortran() {
+    use blas_sys::fortran as ffi;
+
     let trans = b'N' as i8;
     let m = 1;
     let n = 1;
