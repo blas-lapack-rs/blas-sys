@@ -24,9 +24,11 @@ extern "C" {
     pub fn saxpy_(n: *const c_int, alpha: *const c_float, x: *const c_float, incx: *const c_int,
                   y: *mut c_float, incy: *const c_int);
     pub fn sdot_(n: *const c_int, x: *const c_float, incx: *const c_int, y: *const c_float,
-                 incy: *const c_int) -> c_float;
+                 incy: *const c_int)
+                 -> c_float;
     pub fn sdsdot_(n: *const c_int, sb: *const c_float, x: *const c_float, incx: *const c_int,
-                   y: *const c_float, incy: *const c_int) -> c_float;
+                   y: *const c_float, incy: *const c_int)
+                   -> c_float;
     pub fn snrm2_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_float;
     pub fn scnrm2_(n: *const c_int, x: *const c_float_complex, incx: *const c_int) -> c_float;
     pub fn sasum_(n: *const c_int, x: *const c_float, incx: *const c_int) -> c_float;
@@ -48,9 +50,11 @@ extern "C" {
     pub fn daxpy_(n: *const c_int, alpha: *const c_double, x: *const c_double, incx: *const c_int,
                   y: *mut c_double, incy: *const c_int);
     pub fn ddot_(n: *const c_int, x: *const c_double, incx: *const c_int, y: *const c_double,
-                 incy: *const c_int) -> c_double;
+                 incy: *const c_int)
+                 -> c_double;
     pub fn dsdot_(n: *const c_int, x: *const c_float, incx: *const c_int, y: *const c_float,
-                  incy: *const c_int) -> c_double;
+                  incy: *const c_int)
+                  -> c_double;
     pub fn dnrm2_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_double;
     pub fn dznrm2_(n: *const c_int, x: *const c_double_complex, incx: *const c_int) -> c_double;
     pub fn dasum_(n: *const c_int, x: *const c_double, incx: *const c_int) -> c_double;

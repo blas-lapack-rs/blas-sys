@@ -50,7 +50,8 @@ extern "C" {
     pub fn cblas_scabs1(c: *const c_float_complex) -> c_float;
 
     pub fn cblas_sdsdot(n: c_int, alpha: c_float, x: *const c_float, incx: c_int,
-                        y: *const c_float, incy: c_int) -> c_float;
+                        y: *const c_float, incy: c_int)
+                        -> c_float;
     pub fn cblas_dsdot(n: c_int, x: *const c_float, incx: c_int, y: *const c_float, incy: c_int)
                        -> c_double;
     pub fn cblas_sdot(n: c_int, x: *const c_float, incx: c_int, y: *const c_float, incy: c_int)
