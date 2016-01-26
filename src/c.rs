@@ -4,8 +4,6 @@ use libc::{c_char, c_double, c_float, c_int};
 
 use {c_double_complex, c_float_complex};
 
-pub type CblasIndex = c_int;
-
 #[repr(C)]
 pub enum CblasLayout {
     CblasRowMajor = 101,
@@ -84,10 +82,10 @@ extern "C" {
     pub fn cblas_dzasum(n: c_int, x: *const c_double_complex, incx: c_int) -> c_double;
 
     // Standard prefixes (S, D, C, and Z)
-    pub fn cblas_isamax(n: c_int, x: *const c_float, incx: c_int) -> CblasIndex;
-    pub fn cblas_idamax(n: c_int, x: *const c_double, incx: c_int) -> CblasIndex;
-    pub fn cblas_icamax(n: c_int, x: *const c_float_complex, incx: c_int) -> CblasIndex;
-    pub fn cblas_izamax(n: c_int, x: *const c_double_complex, incx: c_int) -> CblasIndex;
+    pub fn cblas_isamax(n: c_int, x: *const c_float, incx: c_int) -> c_int;
+    pub fn cblas_idamax(n: c_int, x: *const c_double, incx: c_int) -> c_int;
+    pub fn cblas_icamax(n: c_int, x: *const c_float_complex, incx: c_int) -> c_int;
+    pub fn cblas_izamax(n: c_int, x: *const c_double_complex, incx: c_int) -> c_int;
 }
 
 // Level 1 (routines)
