@@ -46,7 +46,7 @@ pub use self::CBLAS_SIDE::*;
 
 pub type CBLAS_ORDER = CBLAS_LAYOUT;
 
-// Level 1 (functions, but complex are recast as routines)
+// Level 1 (functions except for complex)
 extern "C" {
     pub fn cblas_dcabs1(z: *const c_double_complex) -> c_double;
     pub fn cblas_scabs1(c: *const c_float_complex) -> c_float;
