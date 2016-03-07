@@ -1,6 +1,6 @@
 [package]
 name = "blas-sys"
-version = "0.5.3"
+version = "0.5.4"
 license = "Apache-2.0/MIT"
 authors = [
   "Andrew Straw <strawman@astraw.com>",
@@ -27,9 +27,9 @@ version = "0.2"
 optional = true
 
 [dependencies.netlib-provider]
-version = "0.2"
+version = "0.3"
 optional = true
 
 [dependencies.openblas-provider]
-version = "0.2"
+version = "0.3"
 optional = true
