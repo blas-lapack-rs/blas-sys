@@ -9,6 +9,7 @@ use {c_double_complex, c_float_complex};
 pub type CBLAS_INDEX = c_int;
 
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub enum CBLAS_LAYOUT {
     CblasRowMajor = 101,
     CblasColMajor = 102,
@@ -16,6 +17,7 @@ pub enum CBLAS_LAYOUT {
 pub use self::CBLAS_LAYOUT::*;
 
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub enum CBLAS_TRANSPOSE {
     CblasNoTrans = 111,
     CblasTrans = 112,
@@ -24,6 +26,7 @@ pub enum CBLAS_TRANSPOSE {
 pub use self::CBLAS_TRANSPOSE::*;
 
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub enum CBLAS_UPLO {
     CblasUpper = 121,
     CblasLower = 122,
@@ -31,6 +34,7 @@ pub enum CBLAS_UPLO {
 pub use self::CBLAS_UPLO::*;
 
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub enum CBLAS_DIAG {
     CblasNonUnit = 131,
     CblasUnit = 132,
@@ -38,6 +42,7 @@ pub enum CBLAS_DIAG {
 pub use self::CBLAS_DIAG::*;
 
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub enum CBLAS_SIDE {
     CblasLeft = 141,
     CblasRight = 142,
