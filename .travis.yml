@@ -1,19 +1,13 @@
 language: rust
 sudo: false
+
 rust:
   - stable
   - beta
   - nightly
 
-addons:
-  apt:
-    packages:
-      - gfortran
-
 after_success:
-  - if [ "$TRAVIS_RUST_VERSION" == "nightly" ]; then
-      curl https://stainless-steel.github.io/travis/update_documentation.sh | bash;
-    fi
+  - curl https://stainless-steel.github.io/travis/documentation.sh | bash;
 
 env:
   global:
@@ -21,3 +15,8 @@ env:
 
 notifications:
   email: false
+
+addons:
+  apt:
+    packages:
+      - gfortran
