@@ -1,6 +1,6 @@
 [package]
 name = "blas-sys"
-version = "0.6.2"
+version = "0.6.3"
 license = "Apache-2.0/MIT"
 authors = [
   "Andrew Straw <strawman@astraw.com>",
@@ -16,21 +16,21 @@ repository = "https://github.com/stainless-steel/blas-sys"
 [features]
 default = ["openblas"]
 
-accelerate = ["accelerate-provider"]
-netlib = ["netlib-provider"]
-openblas = ["openblas-provider"]
+accelerate = ["accelerate-src"]
+netlib = ["netlib-src"]
+openblas = ["openblas-src"]
 
 [dependencies]
 libc = "0.2"
 
-[dependencies.accelerate-provider]
-version = "0.2"
+[dependencies.accelerate-src]
+version = "0.3"
 optional = true
 
-[dependencies.netlib-provider]
-version = "0.4"
+[dependencies.netlib-src]
+version = "0.5"
 optional = true
 
-[dependencies.openblas-provider]
-version = "0.4"
+[dependencies.openblas-src]
+version = "0.5"
 optional = true

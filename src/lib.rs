@@ -7,13 +7,13 @@
 extern crate libc;
 
 #[cfg(feature = "accelerate")]
-extern crate accelerate_provider as raw;
+extern crate accelerate_src as raw;
 
 #[cfg(feature = "netlib")]
-extern crate netlib_provider as raw;
+extern crate netlib_src as raw;
 
 #[cfg(feature = "openblas")]
-extern crate openblas_provider as raw;
+extern crate openblas_src as raw;
 
 /// A complex number with 64-bit parts.
 #[allow(bad_style)]
