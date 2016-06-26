@@ -1,6 +1,7 @@
 language: rust
 sudo: false
 
+cache: cargo
 rust:
   - stable
   - beta
@@ -13,10 +14,10 @@ env:
   global:
     - secure: vZkiTOKMtYP6/Acz2DtADr5MoKMH/pIiIKRPELLuDU6KIOOoMKDDXITV0sriXxcyY1yxIevUbdSsH1SK4wMzXzRq702RqF8+gRY2DdPtVWge4AojB7I8sS9WHK7EzIs14guE/4WuqisAMj24rRE67/+Q8UKDfM1lAdGZ6w/HocY=
 
-notifications:
-  email: false
-
 addons:
   apt:
     packages:
       - gfortran
+
+notifications:
+  email: false
