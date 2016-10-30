@@ -1,6 +1,6 @@
 [package]
 name = "blas-sys"
-version = "0.6.3"
+version = "0.6.4"
 license = "Apache-2.0/MIT"
 authors = [
   "Andrew Straw <strawman@astraw.com>",
@@ -9,7 +9,7 @@ authors = [
   "bluss",
 ]
 description = "The package provides bindings to the Basic Linear Algebra Subprograms."
-documentation = "https://stainless-steel.github.io/blas-sys"
+documentation = "https://docs.rs/blas-sys"
 homepage = "https://github.com/stainless-steel/blas-sys"
 repository = "https://github.com/stainless-steel/blas-sys"
 
