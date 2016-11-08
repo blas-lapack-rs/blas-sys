@@ -3,10 +3,10 @@ name = "blas-sys"
 version = "0.6.4"
 license = "Apache-2.0/MIT"
 authors = [
-  "Andrew Straw <strawman@astraw.com>",
-  "Corey Richardson <corey@octayn.net>",
-  "Ivan Ukhov <ivan.ukhov@gmail.com>",
-  "bluss",
+    "Andrew Straw <strawman@astraw.com>",
+    "Corey Richardson <corey@octayn.net>",
+    "Ivan Ukhov <ivan.ukhov@gmail.com>",
+    "bluss",
 ]
 description = "The package provides bindings to the Basic Linear Algebra Subprograms."
 documentation = "https://docs.rs/blas-sys"
