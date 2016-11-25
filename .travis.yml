@@ -1,5 +1,9 @@
 language: rust
-sudo: false
+sudo: required
+
+os:
+  - linux
+  - osx
 
 cache: cargo
 rust:
@@ -7,9 +11,33 @@ rust:
   - beta
   - nightly
 
+env:
+  matrix:
+    - FEATURE=accelerate
+    - FEATURE=netlib
+    - FEATURE=openblas
+
+matrix:
+  exclude:
+    - os: linux
+      env: FEATURE=accelerate
+
+before_install:
+  - curl https://stainless-steel.github.io/travis/fortran.sh | bash
+
+script:
+  - cargo test -vv --no-default-features --features=$FEATURE
+  - if [ "$TRAVIS_RUST_VERSION" == "nightly" ]; then
+      cargo bench -vv --no-default-features --features=$FEATURE;
+    fi
+
 addons:
   apt:
+    sources:
+      - kubuntu-backports
+
     packages:
+      - cmake
       - gfortran
 
 notifications:
