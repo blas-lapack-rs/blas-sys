@@ -1,6 +1,6 @@
 [package]
 name = "blas-sys"
-version = "0.6.5"
+version = "0.6.6"
 license = "Apache-2.0/MIT"
 authors = [
     "Andrew Straw <strawman@astraw.com>",
@@ -12,6 +12,8 @@ description = "The package provides bindings to the Basic Linear Algebra Subprog
 documentation = "https://docs.rs/blas-sys"
 homepage = "https://github.com/stainless-steel/blas-sys"
 repository = "https://github.com/stainless-steel/blas-sys"
+categories = ["external-ffi-bindings", "science"]
+keywords = ["linear-algebra"]
 
 [features]
 default = ["openblas"]
