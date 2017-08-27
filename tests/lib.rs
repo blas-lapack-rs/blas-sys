@@ -18,8 +18,20 @@ fn link_c() {
     let incy = 1;
 
     unsafe {
-        ffi::cblas_dgemv(layout, transa, m, n, alpha, a.as_ptr(), lda, x.as_ptr(), incx, beta,
-                         y.as_mut_ptr(), incy);
+        ffi::cblas_dgemv(
+            layout,
+            transa,
+            m,
+            n,
+            alpha,
+            a.as_ptr(),
+            lda,
+            x.as_ptr(),
+            incx,
+            beta,
+            y.as_mut_ptr(),
+            incy,
+        );
     }
 }
 
@@ -40,7 +52,18 @@ fn link_fortran() {
     let incy = 1;
 
     unsafe {
-        ffi::dgemv_(&trans, &m, &n, &alpha, a.as_ptr(), &lda, x.as_ptr(), &incx, &beta,
-                    y.as_mut_ptr(), &incy);
+        ffi::dgemv_(
+            &trans,
+            &m,
+            &n,
+            &alpha,
+            a.as_ptr(),
+            &lda,
+            x.as_ptr(),
+            &incx,
+            &beta,
+            y.as_mut_ptr(),
+            &incy,
+        );
     }
 }
