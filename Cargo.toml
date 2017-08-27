@@ -12,6 +12,7 @@ description = "The package provides bindings to the Basic Linear Algebra Subprog
 documentation = "https://docs.rs/blas-sys"
 homepage = "https://github.com/stainless-steel/blas-sys"
 repository = "https://github.com/stainless-steel/blas-sys"
+readme = "README.md"
 categories = ["external-ffi-bindings", "science"]
 keywords = ["linear-algebra"]
 
