@@ -5,15 +5,6 @@
 
 extern crate libc;
 
-#[cfg(feature = "accelerate")]
-extern crate accelerate_src as raw;
-
-#[cfg(feature = "netlib")]
-extern crate netlib_src as raw;
-
-#[cfg(feature = "openblas")]
-extern crate openblas_src as raw;
-
 /// A complex number with 64-bit parts.
 #[allow(bad_style)]
 pub type c_double_complex = [libc::c_double; 2];
