@@ -14,6 +14,9 @@ extern crate netlib_src as raw;
 #[cfg(feature = "openblas")]
 extern crate openblas_src as raw;
 
+#[cfg(feature = "intel-mkl")]
+extern crate intel_mkl_src as raw;
+
 /// A complex number with 64-bit parts.
 #[allow(bad_style)]
 pub type c_double_complex = [libc::c_double; 2];
