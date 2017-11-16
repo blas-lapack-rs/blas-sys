@@ -1,6 +1,7 @@
 # blas-sys [![Package][package-img]][package-url] [![Documentation][documentation-img]][documentation-url] [![Build][build-img]][build-url]
 
-The package provides bindings to [BLAS] (Fortran).
+The package provides bindings to [BLAS] (Fortran). The usage of the package is
+explained [here][usage].
 
 ## Contribution
 
@@ -9,6 +10,7 @@ pull request. Note that any contribution submitted for inclusion in the project
 will be licensed according to the terms given in [LICENSE.md](LICENSE.md).
 
 [blas]: https://en.wikipedia.org/wiki/BLAS
+[usage]: https://blas-lapack-rs.github.io/usage
 
 [build-img]: https://travis-ci.org/blas-lapack-rs/blas-sys.svg?branch=master
 [build-url]: https://travis-ci.org/blas-lapack-rs/blas-sys

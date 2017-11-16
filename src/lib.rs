@@ -1,6 +1,9 @@
 //! Bindings to [BLAS] (Fortran)
 //!
+//! The usage of the package is explained [here][usage].
+//!
 //! [blas]: https://en.wikipedia.org/wiki/BLAS
+//! [usage]: https://blas-lapack-rs.github.io/usage
 
 #![no_std]
 
