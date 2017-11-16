@@ -1,6 +1,7 @@
-//! Bindings to the [Basic Linear Algebra Subprograms][blas].
+//! Bindings to [BLAS].
 //!
-//! [blas]: https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
+//! [blas]: https://en.wikipedia.org/wiki/BLAS
+
 #![no_std]
 
 extern crate libc;
