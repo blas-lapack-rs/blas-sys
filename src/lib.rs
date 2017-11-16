@@ -1,4 +1,4 @@
-//! Bindings to [BLAS].
+//! Bindings to [BLAS] (Fortran)
 //!
 //! [blas]: https://en.wikipedia.org/wiki/BLAS
 

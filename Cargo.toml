@@ -8,7 +8,7 @@ authors = [
     "Ivan Ukhov <ivan.ukhov@gmail.com>",
     "bluss",
 ]
-description = "The package provides bindings to the Basic Linear Algebra Subprograms."
+description = "The package provides bindings to BLAS (Fortran)."
 documentation = "https://docs.rs/blas-sys"
 homepage = "https://github.com/blas-lapack-rs/blas-sys"
 repository = "https://github.com/blas-lapack-rs/blas-sys"
