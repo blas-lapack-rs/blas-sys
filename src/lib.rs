@@ -11,11 +11,11 @@ extern crate libc;
 
 use libc::{c_char, c_double, c_float, c_int};
 
-/// A complex number with 64-bit parts
+/// A complex number with 64-bit parts.
 #[allow(bad_style)]
 pub type c_double_complex = [libc::c_double; 2];
 
-/// A complex number with 32-bit parts
+/// A complex number with 32-bit parts.
 #[allow(bad_style)]
 pub type c_float_complex = [libc::c_float; 2];
 
