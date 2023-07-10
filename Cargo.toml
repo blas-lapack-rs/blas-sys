@@ -18,3 +18,7 @@ keywords = ["linear-algebra"]
 
 [dependencies]
 libc = "0.2"
+half = {version="2.3.1", optional=true}
+
+[features]
+half = ["dep:half"]

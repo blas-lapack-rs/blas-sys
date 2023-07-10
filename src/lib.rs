@@ -1436,4 +1436,22 @@ extern "C" {
         b: *mut c_double_complex,
         ldb: *const c_int,
     );
+
+    // Half
+    #[cfg(feature = "half")]
+    pub fn hgemm_(
+        transa: *const c_char,
+        transb: *const c_char,
+        m: *const c_int,
+        n: *const c_int,
+        k: *const c_int,
+        alpha: *const half::f16,
+        a: *const half::f16,
+        lda: *const c_int,
+        b: *const half::f16,
+        ldb: *const c_int,
+        beta: *const half::f16,
+        c: *mut half::f16,
+        ldc: *const c_int,
+    );
 }
