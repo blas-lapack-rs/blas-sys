@@ -1,7 +1,8 @@
 [package]
 name = "blas-sys"
-version = "0.7.1"
-license = "Apache-2.0/MIT"
+version = "0.8.0"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
 authors = [
     "Andrew Straw <strawman@astraw.com>",
     "Corey Richardson <corey@octayn.net>",
